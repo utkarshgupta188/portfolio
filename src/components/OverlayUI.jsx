@@ -72,9 +72,6 @@ export default function OverlayUI() {
             {/* ── HERO ── */}
             <section className="w-full h-screen flex flex-col justify-center items-center text-center px-6 md:px-16">
                 <motion.div {...fadeUp} className="max-w-4xl w-full">
-                    <p className="text-xs font-mono tracking-[0.3em] text-cyan-500 mb-4 uppercase">
-                        — Portfolio v1.0 —
-                    </p>
                     <h1 className="text-6xl md:text-9xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 mb-4 drop-shadow-[0_0_40px_rgba(45,212,191,0.4)]">
                         Utkarsh
                     </h1>
@@ -156,26 +153,56 @@ export default function OverlayUI() {
                     >
                         {[
                             {
-                                color: 'cyan',
+                                colors: {
+                                    textPeriod: 'text-cyan-400',
+                                    borderCircle: 'border-cyan-500/50',
+                                    bgDot: 'bg-cyan-400',
+                                    textOrg: 'text-cyan-300',
+                                    badgeBg: 'bg-cyan-500/20',
+                                    badgeText: 'text-cyan-300',
+                                    badgeBorder: 'border-cyan-500/30'
+                                },
                                 period: 'Sep 2024 – Sep 2028',
                                 title: 'B.Tech Computer Science',
                                 org: 'LNCT Group of Colleges',
                                 desc: "Bachelor's in Computer Science — data structures, programming, plus emerging AI/ML technologies.",
+                                grade: "8.5 CGPA",
+                                pulse: true
                             },
                             {
-                                color: 'purple',
+                                colors: {
+                                    textPeriod: 'text-purple-400',
+                                    borderCircle: 'border-purple-500/50',
+                                    bgDot: 'bg-purple-400',
+                                    textOrg: 'text-purple-300',
+                                    badgeBg: 'bg-purple-500/20',
+                                    badgeText: 'text-purple-300',
+                                    badgeBorder: 'border-purple-500/30'
+                                },
                                 period: '2020 – 2023',
                                 title: 'High School (Class 10 & 12, PCM)',
                                 org: 'DAV Schools Network',
                                 desc: 'Completed Class 12 with Physics, Chemistry, and Mathematics.',
+                                grade: "80%",
+                                pulse: false
                             },
                         ].map(item => (
                             <motion.div key={item.title} variants={fadeItem} className="relative flex items-start gap-6 group">
-                                <div className={`flex items-center justify-center w-10 h-10 rounded-full border border-${item.color}-500/50 bg-slate-900 shrink-0 z-10 mt-1 transition-all group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(45,212,191,0.3)]`} />
-                                <div className="flex-1 glass-panel p-6 border border-white/5 bg-black/40 backdrop-blur-md rounded-xl hover:border-blue-500/30 transition-all">
-                                    <span className={`text-${item.color}-400 font-mono text-xs mb-1 block`}>{item.period}</span>
+                                <div className={`flex items-center justify-center w-8 h-8 rounded-full border ${item.colors.borderCircle} bg-slate-900 shrink-0 z-10 mt-1 transition-all group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(45,212,191,0.3)]`}>
+                                    {/* Inner dot */}
+                                    <div className={`w-2 h-2 rounded-full ${item.colors.bgDot} shadow-[0_0_10px_currentColor] ${item.pulse ? 'animate-pulse' : ''}`} />
+                                </div>
+                                <div className="flex-1 glass-panel p-6 rounded-xl hover:border-blue-500/30 transition-all relative">
+                                    <div className="flex justify-between items-start mb-1">
+                                        <span className={`${item.colors.textPeriod} font-mono text-xs block`}>{item.period}</span>
+                                        {item.grade && (
+                                            <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${item.colors.badgeBg} ${item.colors.badgeText} border ${item.colors.badgeBorder}`}>
+                                                {item.grade}
+                                            </span>
+                                        )}
+                                    </div>
                                     <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
-                                    <h4 className={`text-${item.color}-300 font-mono text-sm mb-3`}>{item.org}</h4>
+                                    <h4 className={`${item.colors.textOrg} font-mono text-sm mb-3`}>{item.org}</h4>
                                     <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
                                 </div>
                             </motion.div>

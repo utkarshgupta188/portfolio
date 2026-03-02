@@ -15,7 +15,7 @@ function App() {
         <color attach="background" args={['#03050a']} />
         <ambientLight intensity={0.5} />
         <Suspense fallback={null}>
-          <ScrollControls pages={7} damping={0.15}>
+          <ScrollControls pages={6.8} damping={0.15}>
             <Scene />
             {/* HTML overlays mapped to scroll progress */}
             <OverlayUI />
