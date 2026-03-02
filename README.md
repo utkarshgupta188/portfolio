@@ -2,7 +2,7 @@
 
 A dark, minimalist, and tech-focused interactive 3D WebGL developer portfolio.
 
-> **Live Demo:** [Portfolio Link] *(Replace with actual deployed Vercel link once available)*
+> **Live Demo:** [Portfolio Link](https://utkarshg.vercel.app/) *(Replace with actual deployed Vercel link once available)*
 
 ## Overview
 This portfolio was built to showcase my technical competencies, academic trajectory, and software development projects. It features an immersive 3D background with interactive nodes and smooth, scroll-linked animations, utilizing modern web frameworks suited for high-performance visual applications.
