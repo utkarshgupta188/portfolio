@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: "Inter", sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "JetBrains Mono", monospace;
+  --font-display: "Syne", sans-serif;
 
   --color-matrix-bg: #03050a;
   --color-matrix-panel: rgba(10, 15, 30, 0.6);
@@ -22,7 +22,7 @@
 :root {
   background-color: var(--color-matrix-bg);
   color: #e2e8f0;
-  font-family: "Inter", sans-serif;
+  font-family: "JetBrains Mono", monospace;
   overflow-x: hidden;
   scroll-behavior: smooth;
   --radius: 0.625rem;
@@ -65,19 +65,19 @@ body {
   min-height: 100vh;
 }
 
-/* Premium Glassmorphism Utility */
+/* Clean Techy Panel */
 .glass-panel {
-  background: var(--color-matrix-panel);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--color-matrix-border);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  border-radius: 1rem;
+  background: rgba(8, 12, 24, 0.92);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border-radius: 0.75rem;
 }
 
 .glass-panel:hover {
-  border-color: var(--color-matrix-border-hover);
-  box-shadow: 0 8px 32px 0 rgba(45, 212, 191, 0.1);
+  border-color: rgba(45, 212, 191, 0.25);
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(45, 212, 191, 0.08);
 }
 
 /* Typography Utility */
@@ -225,6 +225,7 @@ h6,
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
