@@ -1,7 +1,8 @@
 {
   "name": "portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A dark, minimalist, and tech-focused interactive 3D WebGL developer portfolio built by Utkarsh Gupta.",
   "type": "module",
   "scripts": {
     "dev": "vite",
