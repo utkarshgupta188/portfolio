@@ -1,4 +1,3 @@
-import { Scroll } from '@react-three/drei'
 import { motion } from 'framer-motion'
 import { Badge } from './ui/badge'
 import { Separator } from './ui/separator'
@@ -67,15 +66,14 @@ function FillButton({ href, children, color = 'cyan', external = false }) {
 
 export default function OverlayUI() {
     return (
-        <Scroll html style={{ width: '100%' }}>
-
+        <div className="w-full flex flex-col min-h-[100dvh] pb-16 md:pb-8">
             {/* ── HERO ── */}
-            <section className="w-full h-screen flex flex-col justify-center items-center text-center px-6 md:px-16">
+            <section className="w-full h-[100dvh] flex flex-col justify-center items-center text-center px-6 md:px-16">
                 <motion.div {...fadeUp} className="max-w-4xl w-full">
-                    <h1 className="text-6xl md:text-9xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 mb-4 drop-shadow-[0_0_40px_rgba(45,212,191,0.4)]">
+                    <h1 className="text-5xl sm:text-6xl md:text-9xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 mb-4 drop-shadow-[0_0_40px_rgba(45,212,191,0.4)]">
                         Utkarsh
                     </h1>
-                    <h1 className="text-6xl md:text-9xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 mb-6 drop-shadow-[0_0_40px_rgba(192,132,252,0.4)]">
+                    <h1 className="text-5xl sm:text-6xl md:text-9xl font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 mb-6 drop-shadow-[0_0_40px_rgba(192,132,252,0.4)]">
                         Gupta
                     </h1>
                     <div className="flex items-center justify-center gap-3 mb-8">
@@ -128,15 +126,15 @@ export default function OverlayUI() {
                             </p>
                         </div>
                     </div>
-                    <div className="mt-8 grid grid-cols-3 gap-4">
+                    <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
                         {[
                             { num: '5+', label: 'Projects Built' },
                             { num: 'AI/ML', label: 'Core Focus' },
                             { num: '2028', label: 'BTech Graduate' },
                         ].map(stat => (
-                            <div key={stat.label} className="glass-panel p-6 rounded-xl text-center">
-                                <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-display mb-1">{stat.num}</div>
-                                <div className="text-xs font-mono text-slate-500 uppercase tracking-widest">{stat.label}</div>
+                            <div key={stat.label} className="glass-panel p-3 sm:p-6 rounded-xl text-center overflow-visible">
+                                <div className="text-sm sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-display mb-1 px-1">{stat.num}</div>
+                                <div className="text-[10px] sm:text-xs font-mono text-slate-500 uppercase tracking-widest">{stat.label}</div>
                             </div>
                         ))}
                     </div>
@@ -357,7 +355,7 @@ export default function OverlayUI() {
             </section>
 
             {/* ── FOOTER ── */}
-            <footer className="w-full py-10 flex flex-col items-center gap-2 border-t border-white/5">
+            <footer className="w-full py-10 flex flex-col items-center gap-2 border-t border-white/5 mt-auto relative z-10">
                 <span className="text-xs font-mono text-slate-400 tracking-widest">UTKARSH GUPTA © 2025</span>
                 <span className="text-xs font-mono text-slate-500">BTech CS · Sonbhadra, UP, India</span>
             </footer>
@@ -369,7 +367,7 @@ export default function OverlayUI() {
                     STATUS: ONLINE
                 </span>
             </div>
-        </Scroll>
+        </div>
     )
 }
 
@@ -392,7 +390,7 @@ function SectionLabel({ label, title, color }) {
     return (
         <div className={`flex items-center gap-4 border-b ${borders[color]} pb-4`}>
             <span className={`font-mono text-xs ${colors[color]} opacity-60`}>{label}</span>
-            <h2 className={`text-3xl md:text-5xl font-display font-black ${colors[color]}`}>{title}</h2>
+            <h2 className={`text-2xl md:text-5xl font-display font-black ${colors[color]}`}>{title}</h2>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import { useFrame } from '@react-three/fiber'
-import { useScroll, Stars } from '@react-three/drei'
+import { Stars } from '@react-three/drei'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { useRef } from 'react'
 import * as THREE from 'three'
@@ -15,19 +15,17 @@ const pathPoints = [
 ]
 const curve = new THREE.CatmullRomCurve3(pathPoints)
 
-export default function Scene() {
-    const scroll = useScroll()
+export default function Scene({ scrollProgress = 0 }) {
     const cameraGroup = useRef()
 
     useFrame((state, delta) => {
         // T is scroll progress from 0 to 1
-        const t = scroll.offset
+        const t = scrollProgress
 
         // Find position on the curve based on scroll
         const position = curve.getPoint(t)
 
         // Find where the camera should look (slightly ahead on the curve)
-        // If we are at the very end, just look ahead slightly
         const lookAtPoint = curve.getPoint(Math.min(t + 0.05, 1.0))
 
         // Smoothly move the camera group
