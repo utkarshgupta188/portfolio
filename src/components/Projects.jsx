@@ -85,19 +85,19 @@ const ProjectCard = ({ project, index }) => {
         </div>
       </div>
       
-      <div className="mt-8 flex flex-col gap-4">
+      <div className="mt-6 md:mt-8 flex flex-col gap-3 md:gap-4">
         <div className="flex justify-between items-start">
           <div>
-            <h3 className="text-2xl md:text-3xl uppercase">{project.title}</h3>
-            <p className="text-zinc-500 font-mono text-xs uppercase mt-1">
+            <h3 className="text-xl md:text-3xl uppercase tracking-tight">{project.title}</h3>
+            <p className="text-zinc-500 font-mono text-[10px] uppercase mt-1">
               {project.category} / {project.role}
             </p>
           </div>
-          <div className="font-mono text-xs text-black/20">
+          <div className="font-mono text-[10px] md:text-xs text-black/20">
             {index + 1 < 10 ? `0${index + 1}` : index + 1}
           </div>
         </div>
-        <p className="text-zinc-600 max-w-sm line-clamp-2">
+        <p className="text-zinc-600 text-sm md:text-base max-w-sm line-clamp-2">
           {project.description}
         </p>
       </div>
@@ -107,19 +107,19 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-32 px-8">
+    <section id="projects" className="relative py-20 md:py-32 px-6 md:px-8">
       <motion.div 
-        className="flex items-center gap-4 mb-24"
+        className="flex items-center gap-4 mb-16 md:mb-24"
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <span className="font-mono text-xs text-black/40">[ 01 ]</span>
-        <h2 className="text-4xl md:text-6xl">Selected <span className="text-italic font-sans font-light">Works</span></h2>
+        <h2 className="text-3xl md:text-6xl uppercase">Selected <span className="text-italic font-sans font-light lowercase">Works</span></h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 md:gap-y-24">
         {projects.map((project, index) => (
           <ProjectCard key={project.title} project={project} index={index} />
         ))}

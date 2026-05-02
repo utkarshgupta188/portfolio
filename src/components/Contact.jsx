@@ -25,7 +25,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-32 px-8 bg-black text-white min-h-[80vh] flex flex-col justify-center relative overflow-hidden">
       {/* Background Text */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 0.02, scale: 1 }}
         transition={{ duration: 2 }}
@@ -34,7 +34,7 @@ const Contact = () => {
         LET'S CREATE
       </motion.div>
 
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -61,18 +61,18 @@ const Contact = () => {
             Initiate Email
           </motion.a>
           <div className="flex items-center gap-8 px-4">
-            <motion.a 
+            <motion.a
               whileHover={{ x: 5, color: '#fff' }}
-              href="https://linkedin.com/in/utkarshgupta-dev" 
-              target="_blank" 
+              href="https://linkedin.com/in/utkarshgupta-dev"
+              target="_blank"
               className="font-mono text-xs uppercase tracking-widest text-white/40 transition-colors"
             >
               LinkedIn
             </motion.a>
-            <motion.a 
+            <motion.a
               whileHover={{ x: 5, color: '#fff' }}
-              href="https://github.com/utkarshgupta188" 
-              target="_blank" 
+              href="https://github.com/utkarshgupta188"
+              target="_blank"
               className="font-mono text-xs uppercase tracking-widest text-white/40 transition-colors"
             >
               GitHub
@@ -81,7 +81,7 @@ const Contact = () => {
         </motion.div>
       </motion.div>
 
-      <motion.footer 
+      <motion.footer
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}

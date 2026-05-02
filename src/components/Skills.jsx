@@ -41,28 +41,28 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-32 px-8">
+    <section id="skills" className="relative py-20 md:py-32 px-6 md:px-8">
       <motion.div 
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="flex items-center gap-4 mb-24"
+        className="flex items-center gap-4 mb-16 md:mb-24"
       >
         <span className="font-mono text-xs text-black/40">[ 03 ]</span>
-        <h2 className="text-4xl md:text-6xl uppercase">Competencies <span className="text-italic font-sans font-light lowercase">& Tools</span></h2>
+        <h2 className="text-3xl md:text-6xl uppercase">Competencies <span className="text-italic font-sans font-light lowercase">& Tools</span></h2>
       </motion.div>
 
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
+        viewport={{ once: true, margin: "-50px" }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12"
       >
         {skillGroups.map((group) => (
-          <motion.div key={group.category} variants={itemVariants} className="flex flex-col gap-6">
-            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-black/40 border-b border-black/10 pb-4">
+          <motion.div key={group.category} variants={itemVariants} className="flex flex-col gap-4 md:gap-6">
+            <h3 className="font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] text-black/40 border-b border-black/10 pb-4">
               {group.category}
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -78,22 +78,22 @@ const Skills = () => {
 
 
       {/* Certifications Mini Section */}
-      <div className="mt-32 pt-32 border-t border-black/10">
-        <div className="flex flex-col md:flex-row gap-16">
+      <div className="mt-20 md:mt-32 pt-20 md:pt-32 border-t border-black/10">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-16">
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="md:w-1/3"
           >
-            <h3 className="text-2xl uppercase">Certifications</h3>
+            <h3 className="text-xl md:text-2xl uppercase">Certifications</h3>
           </motion.div>
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
           >
             {[
               'Postman API Fundamentals Student Expert',
@@ -103,7 +103,7 @@ const Skills = () => {
             ].map((cert) => (
               <motion.div key={cert} variants={itemVariants} className="flex items-start gap-4">
                 <span className="font-mono text-[10px] text-black/20 mt-1">/</span>
-                <span className="text-sm uppercase tracking-wide text-zinc-600">{cert}</span>
+                <span className="text-xs md:text-sm uppercase tracking-wide text-zinc-600">{cert}</span>
               </motion.div>
             ))}
           </motion.div>

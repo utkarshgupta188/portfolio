@@ -30,7 +30,7 @@ function App() {
   }, [])
 
   return (
-    <div className="w-full min-h-screen bg-[#F2F2F2] selection:bg-black selection:text-white">
+    <div className="relative w-full min-h-screen bg-[#F2F2F2] selection:bg-black selection:text-white">
       {/* Background Grid Lines */}
       <div className="grid-line grid-line-1" />
       <div className="grid-line grid-line-2" />

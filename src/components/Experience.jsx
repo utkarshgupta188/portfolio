@@ -10,50 +10,55 @@ const experiences = [
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
 const Experience = () => {
   return (
-    <section id="experience" className="py-32 px-8 bg-zinc-100">
-      <div className="flex flex-col md:flex-row gap-16 md:gap-32">
-        <motion.div 
-          className="md:w-1/3"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className="flex items-center gap-4 mb-8">
-            <span className="font-mono text-xs text-black/40">[ 02 ]</span>
-            <h2 className="text-4xl md:text-5xl">Experience <br /><span className="text-italic font-sans font-light">& Education</span></h2>
-          </div>
-          <p className="text-zinc-500 max-w-xs leading-relaxed">
-            My journey through academia and self-taught engineering, focused on the evolving landscape of technology.
-          </p>
-        </motion.div>
+    <section id="experience" className="relative py-20 md:py-32 px-6 md:px-8 border-y border-black/10">
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="flex items-center gap-4 mb-16 md:mb-24"
+      >
+        <span className="font-mono text-xs text-black/40">[ 02 ]</span>
+        <h2 className="text-3xl md:text-6xl uppercase">Background <span className="text-italic font-sans font-light lowercase">& Education</span></h2>
+      </motion.div>
 
-        <div className="md:w-2/3 flex flex-col gap-16">
-          {experiences.map((exp, i) => (
-            <motion.div 
-              key={exp.title} 
-              className="flex flex-col gap-4"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 border-b border-black/10 pb-4">
-                <h3 className="text-2xl md:text-3xl uppercase">{exp.title}</h3>
-                <span className="font-mono text-xs uppercase tracking-widest text-black/40">{exp.period}</span>
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="flex flex-col gap-16 md:gap-32"
+      >
+        {experiences.map((exp, index) => (
+          <motion.div key={exp.org} variants={itemVariants} className="flex flex-col md:flex-row gap-6 md:gap-16">
+            <div className="md:w-1/3">
+              <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-black/40">{exp.period}</span>
+            </div>
+            <div className="md:w-2/3">
+              <div className="flex flex-col gap-3 md:gap-4">
+                <h3 className="text-2xl md:text-4xl uppercase tracking-tighter">{exp.title}</h3>
+                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+                  <span className="font-mono text-xs md:text-sm uppercase tracking-wider text-zinc-500">{exp.org}</span>
+                  <span className="hidden md:block w-1 h-1 rounded-full bg-black/20" />
+                  <p className="font-mono text-xs md:text-sm text-zinc-400 leading-relaxed">{exp.description}</p>
+                </div>
               </div>
-              <div className="flex flex-col gap-4">
-                <span className="font-mono text-sm uppercase tracking-wider">{exp.org}</span>
-                <p className="text-zinc-600 max-w-xl leading-relaxed">
-                  {exp.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 };

@@ -21,11 +21,23 @@ body {
   margin: 0;
   background-color: var(--color-bg);
   background-image: 
-    linear-gradient(to right, var(--color-grid) 1px, transparent 1px);
-  background-size: 20% 100%; /* Creates 5 vertical columns */
+    linear-gradient(to right, var(--color-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
+  background-size: 20% 100%, 100% 100px; /* Vertical columns and horizontal rows */
   background-position: center;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/subtle-grey.png");
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 50;
 }
 
 @layer base {
@@ -55,6 +67,7 @@ body {
 .grid-line-2 { left: 40%; }
 .grid-line-3 { left: 60%; }
 .grid-line-4 { left: 80%; }
+
 
 /* Typography Helpers */
 .text-italic {
