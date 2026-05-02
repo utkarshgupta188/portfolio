@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const projects = [
   {
@@ -51,51 +52,76 @@ const projects = [
   }
 ];
 
+const ProjectCard = ({ project, index }) => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
+  return (
+    <motion.a 
+      ref={containerRef}
+      href={project.link} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="group block relative"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: index % 2 * 0.1, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <div className="relative aspect-[4/5] overflow-hidden bg-zinc-200">
+        <motion.img 
+          style={{ scale: 1.1, y }}
+          src={project.image} 
+          alt={project.title}
+          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out"
+        />
+        <div className="absolute top-4 right-4 category-pill bg-white/90 backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity">
+          View Project
+        </div>
+      </div>
+      
+      <div className="mt-8 flex flex-col gap-4">
+        <div className="flex justify-between items-start">
+          <div>
+            <h3 className="text-2xl md:text-3xl uppercase">{project.title}</h3>
+            <p className="text-zinc-500 font-mono text-xs uppercase mt-1">
+              {project.category} / {project.role}
+            </p>
+          </div>
+          <div className="font-mono text-xs text-black/20">
+            {index + 1 < 10 ? `0${index + 1}` : index + 1}
+          </div>
+        </div>
+        <p className="text-zinc-600 max-w-sm line-clamp-2">
+          {project.description}
+        </p>
+      </div>
+    </motion.a>
+  );
+};
+
 const Projects = () => {
   return (
     <section id="projects" className="py-32 px-8">
-      <div className="flex items-center gap-4 mb-24 reveal">
+      <motion.div 
+        className="flex items-center gap-4 mb-24"
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
         <span className="font-mono text-xs text-black/40">[ 01 ]</span>
         <h2 className="text-4xl md:text-6xl">Selected <span className="text-italic font-sans font-light">Works</span></h2>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-24">
         {projects.map((project, index) => (
-          <a 
-            key={project.title} 
-            href={project.link} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="group block reveal"
-          >
-            <div className="relative aspect-[4/5] overflow-hidden bg-zinc-200">
-              <img 
-                src={project.image} 
-                alt={project.title}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-              />
-              <div className="absolute top-4 right-4 category-pill bg-white/90 backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity">
-                View Project
-              </div>
-            </div>
-            
-            <div className="mt-8 flex flex-col gap-4">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="text-2xl md:text-3xl uppercase">{project.title}</h3>
-                  <p className="text-zinc-500 font-mono text-xs uppercase mt-1">
-                    {project.category} / {project.role}
-                  </p>
-                </div>
-                <div className="font-mono text-xs text-black/20">
-                  {index + 1 < 10 ? `0${index + 1}` : index + 1}
-                </div>
-              </div>
-              <p className="text-zinc-600 max-w-sm line-clamp-2">
-                {project.description}
-              </p>
-            </div>
-          </a>
+          <ProjectCard key={project.title} project={project} index={index} />
         ))}
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const skillGroups = [
   {
@@ -20,16 +21,47 @@ const skillGroups = [
 ];
 
 const Skills = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
     <section id="skills" className="py-32 px-8">
-      <div className="flex items-center gap-4 mb-24 reveal">
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="flex items-center gap-4 mb-24"
+      >
         <span className="font-mono text-xs text-black/40">[ 03 ]</span>
-        <h2 className="text-4xl md:text-6xl">Competencies <span className="text-italic font-sans font-light">& Tools</span></h2>
-      </div>
+        <h2 className="text-4xl md:text-6xl uppercase">Competencies <span className="text-italic font-sans font-light lowercase">& Tools</span></h2>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
+      >
         {skillGroups.map((group) => (
-          <div key={group.category} className="flex flex-col gap-6 reveal">
+          <motion.div key={group.category} variants={itemVariants} className="flex flex-col gap-6">
             <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-black/40 border-b border-black/10 pb-4">
               {group.category}
             </h3>
@@ -40,30 +72,41 @@ const Skills = () => {
                 </span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
 
       {/* Certifications Mini Section */}
       <div className="mt-32 pt-32 border-t border-black/10">
         <div className="flex flex-col md:flex-row gap-16">
-          <div className="md:w-1/3 reveal">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="md:w-1/3"
+          >
             <h3 className="text-2xl uppercase">Certifications</h3>
-          </div>
-          <div className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
+          </motion.div>
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
             {[
               'Postman API Fundamentals Student Expert',
               'OCI 2025 Certified Generative AI Professional',
               'Python Development & Data Science',
               'PHP for Beginners: The Complete PHP MySQL PDO Course'
             ].map((cert) => (
-              <div key={cert} className="flex items-start gap-4 reveal">
+              <motion.div key={cert} variants={itemVariants} className="flex items-start gap-4">
                 <span className="font-mono text-[10px] text-black/20 mt-1">/</span>
                 <span className="text-sm uppercase tracking-wide text-zinc-600">{cert}</span>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -71,3 +114,4 @@ const Skills = () => {
 };
 
 export default Skills;
+

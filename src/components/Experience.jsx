@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const experiences = [
   {
@@ -13,7 +14,13 @@ const Experience = () => {
   return (
     <section id="experience" className="py-32 px-8 bg-zinc-100">
       <div className="flex flex-col md:flex-row gap-16 md:gap-32">
-        <div className="md:w-1/3 reveal">
+        <motion.div 
+          className="md:w-1/3"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="flex items-center gap-4 mb-8">
             <span className="font-mono text-xs text-black/40">[ 02 ]</span>
             <h2 className="text-4xl md:text-5xl">Experience <br /><span className="text-italic font-sans font-light">& Education</span></h2>
@@ -21,11 +28,18 @@ const Experience = () => {
           <p className="text-zinc-500 max-w-xs leading-relaxed">
             My journey through academia and self-taught engineering, focused on the evolving landscape of technology.
           </p>
-        </div>
+        </motion.div>
 
         <div className="md:w-2/3 flex flex-col gap-16">
-          {experiences.map((exp) => (
-            <div key={exp.title} className="flex flex-col gap-4 reveal">
+          {experiences.map((exp, i) => (
+            <motion.div 
+              key={exp.title} 
+              className="flex flex-col gap-4"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            >
               <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 border-b border-black/10 pb-4">
                 <h3 className="text-2xl md:text-3xl uppercase">{exp.title}</h3>
                 <span className="font-mono text-xs uppercase tracking-widest text-black/40">{exp.period}</span>
@@ -36,7 +50,7 @@ const Experience = () => {
                   {exp.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

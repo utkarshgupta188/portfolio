@@ -1,40 +1,57 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center px-8 relative">
       <div className="max-w-6xl relative z-10">
-        <h1 className="text-6xl sm:text-8xl md:text-[10rem] leading-[0.9] reveal">
+        <motion.h1 
+          className="text-6xl sm:text-8xl md:text-[10rem] leading-[0.9]"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        >
           Creative <br />
           <span className="text-italic font-sans font-light lowercase">Web</span> Developer
-        </h1>
+        </motion.h1>
         
         <div className="mt-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <p className="max-w-md text-zinc-500 text-lg leading-relaxed reveal">
+          <motion.p 
+            className="max-w-md text-zinc-500 text-lg leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          >
             Focusing on the intersection of Full-stack Development, AI, and Human-Centric Design. Currently building intelligent systems at LNCT Group of Colleges.
-          </p>
+          </motion.p>
           
-          <div className="flex flex-col gap-2 reveal">
+          <motion.div 
+            className="flex flex-col gap-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
             <span className="font-mono text-[10px] uppercase tracking-widest text-black/40">[ Based in ]</span>
             <span className="font-mono text-xs uppercase tracking-widest">Bhopal, India</span>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 reveal">
+      <motion.div 
+        className="absolute bottom-12 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+      >
         <div className="w-px h-12 bg-black/10 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-black animate-[scroll-down_2s_ease-in-out_infinite]" />
+          <motion.div 
+            animate={{ y: ["-100%", "100%"] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-0 left-0 w-full h-full bg-black"
+          />
         </div>
-      </div>
-
-      <style jsx>{`
-        @keyframes scroll-down {
-          0% { transform: translateY(-100%); }
-          50% { transform: translateY(0); }
-          100% { transform: translateY(100%); }
-        }
-      `}</style>
+      </motion.div>
     </section>
   );
 };

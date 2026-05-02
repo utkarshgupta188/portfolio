@@ -1,26 +1,32 @@
 import OverlayUI from './components/OverlayUI'
 import { useEffect } from 'react'
+import Lenis from 'lenis'
 
 function App() {
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
+    // Smooth Scroll Initialization
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    })
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
     }
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active')
-        }
-      })
-    }, observerOptions)
+    requestAnimationFrame(raf)
 
-    const revealElements = document.querySelectorAll('.reveal')
-    revealElements.forEach(el => observer.observe(el))
-
-    return () => observer.disconnect()
+    return () => {
+      lenis.destroy()
+    }
   }, [])
 
   return (
