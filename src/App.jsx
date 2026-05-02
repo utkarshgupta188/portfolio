@@ -1,49 +1,37 @@
-import { Canvas } from '@react-three/fiber'
-import Scene from './components/Scene'
 import OverlayUI from './components/OverlayUI'
-import { Suspense, useRef, useEffect, useState, useCallback } from 'react'
+import { useEffect } from 'react'
 
 function App() {
-  const scrollContainerRef = useRef(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    }
 
-  const handleScroll = useCallback(() => {
-    const el = scrollContainerRef.current
-    if (!el) return
-    const maxScroll = el.scrollHeight - el.clientHeight
-    if (maxScroll <= 0) return
-    setScrollProgress(el.scrollTop / maxScroll)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active')
+        }
+      })
+    }, observerOptions)
+
+    const revealElements = document.querySelectorAll('.reveal')
+    revealElements.forEach(el => observer.observe(el))
+
+    return () => observer.disconnect()
   }, [])
 
-  useEffect(() => {
-    const el = scrollContainerRef.current
-    if (!el) return
-    el.addEventListener('scroll', handleScroll, { passive: true })
-    return () => el.removeEventListener('scroll', handleScroll)
-  }, [handleScroll])
-
   return (
-    <div className="w-full h-[100dvh] bg-[#03050a] relative">
-      {/* Fixed Three.js Canvas background */}
-      <Canvas
-        shadows
-        camera={{ position: [0, 0, 15], fov: 50 }}
-        className="!fixed !inset-0 !z-0"
-      >
-        <color attach="background" args={['#03050a']} />
-        <ambientLight intensity={0.5} />
-        <Suspense fallback={null}>
-          <Scene scrollProgress={scrollProgress} />
-        </Suspense>
-      </Canvas>
+    <div className="w-full min-h-screen bg-[#F2F2F2] selection:bg-black selection:text-white">
+      {/* Background Grid Lines */}
+      <div className="grid-line grid-line-1" />
+      <div className="grid-line grid-line-2" />
+      <div className="grid-line grid-line-3" />
+      <div className="grid-line grid-line-4" />
 
-      {/* Natively scrollable HTML content on top */}
-      <div
-        ref={scrollContainerRef}
-        className="absolute inset-0 z-10 overflow-y-auto overflow-x-hidden"
-      >
-        <OverlayUI />
-      </div>
+      <OverlayUI />
     </div>
   )
 }

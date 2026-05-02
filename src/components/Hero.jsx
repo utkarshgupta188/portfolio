@@ -1,54 +1,50 @@
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
-    return (
-        <section
-            id="home"
-            className="relative flex flex-col items-center justify-center min-h-screen z-10 px-4 text-center overflow-hidden"
-        >
-            {/* Ambient Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyber-teal/10 rounded-full blur-[120px] pointer-events-none"></div>
+  return (
+    <section id="home" className="min-h-screen flex flex-col justify-center px-8 relative">
+      {/* Corner Status Labels */}
+      <div className="absolute top-32 left-8 font-mono text-[10px] uppercase tracking-widest text-black/40 reveal">
+        [ Available for project ]
+      </div>
+      <div className="absolute top-32 right-8 font-mono text-[10px] uppercase tracking-widest text-black/40 text-right reveal">
+        [ Utkarsh Gupta / 2026 ]
+      </div>
 
-            <div className="z-10 flex flex-col items-center animate-float">
-                <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight text-white mb-6">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyber-cyan via-white to-cyber-purple text-glow">
-                        JOHN DOE
-                    </span>
-                </h1>
+      <div className="max-w-6xl">
+        <h1 className="text-6xl sm:text-8xl md:text-[10rem] leading-[0.9] reveal">
+          Creative <br />
+          <span className="text-italic font-sans font-light lowercase">Data</span> Scientist
+        </h1>
+        
+        <div className="mt-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <p className="max-w-md text-zinc-500 text-lg leading-relaxed reveal">
+            Focusing on the intersection of Data Science, LLMs, and Human-Centric Design. Currently building intelligent systems at LNCT Group of Colleges.
+          </p>
+          
+          <div className="flex flex-col gap-2 reveal">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-black/40">[ Based in ]</span>
+            <span className="font-mono text-xs uppercase tracking-widest">Sonbhadra, UP, India</span>
+          </div>
+        </div>
+      </div>
 
-                <h2 className="text-xl md:text-3xl text-gray-300 font-medium mb-8 max-w-2xl font-display tracking-wide border-b border-cyber-teal/30 pb-4 inline-block">
-                    AI & Machine Learning Architect
-                </h2>
+      {/* Scroll Down Indicator */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 reveal">
+        <div className="w-px h-12 bg-black/10 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full bg-black animate-[scroll-down_2s_ease-in-out_infinite]" />
+        </div>
+      </div>
 
-                <p className="text-gray-400 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
-                    Building intelligent systems, fine-tuning neural networks, and extracting meaning from complex data architectures.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-6">
-                    <a
-                        href="#projects"
-                        className="px-8 py-4 rounded-xl bg-cyber-teal/20 text-cyber-teal font-medium border border-cyber-teal/50 hover:bg-cyber-teal/30 hover:shadow-[0_0_30px_rgba(45,212,191,0.4)] transition-all duration-300 font-display tracking-widest uppercase text-sm"
-                    >
-                        Initialize Sequence
-                    </a>
-                    <a
-                        href="#contact"
-                        className="px-8 py-4 rounded-xl glass-panel text-white font-medium hover:text-cyber-cyan transition-all duration-300 font-display tracking-widest uppercase text-sm"
-                    >
-                        Access Logs
-                    </a>
-                </div>
-            </div>
-
-            {/* Scroll indicator */}
-            <div className="absolute bottom-10 animate-bounce cursor-pointer z-10">
-                <a href="#about" aria-label="Scroll down" className="p-4 glass-panel rounded-full inline-block">
-                    <ChevronDown className="w-6 h-6 text-cyber-cyan opacity-80 hover:opacity-100 transition-opacity" />
-                </a>
-            </div>
-        </section>
-    );
+      <style jsx>{`
+        @keyframes scroll-down {
+          0% { transform: translateY(-100%); }
+          50% { transform: translateY(0); }
+          100% { transform: translateY(100%); }
+        }
+      `}</style>
+    </section>
+  );
 };
 
 export default Hero;
