@@ -5,13 +5,7 @@ const experiences = [
     period: '2024 – 2028',
     title: 'B.Tech Computer Science',
     org: 'LNCT Group of Colleges',
-    description: "Focusing on AI, Machine Learning, and Data Science. Maintaining a strong 8.5 CGPA while leading technical projects."
-  },
-  {
-    period: '2020 – 2023',
-    title: 'High School',
-    org: 'DAV Schools Network',
-    description: 'Completed Class 12 with a focus on Physics, Chemistry, and Mathematics. Developing a strong analytical foundation.'
+    description: "Focusing on AI, Machine Learning, and Web Development. Maintaining a strong 8.5 CGPA while leading technical projects."
   }
 ];
 

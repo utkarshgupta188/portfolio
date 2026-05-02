@@ -4,16 +4,24 @@ const projects = [
   {
     title: 'MeowTV',
     category: 'Streaming Platform',
-    role: 'Full-stack Dev',
-    description: 'A modern streaming platform for anime and TV shows.',
+    role: 'Lead Developer',
+    description: 'Modern streaming platform for anime and TV shows with Next.js and TypeScript.',
     image: 'https://images.unsplash.com/photo-1574375927938-d5a98e898ad7?auto=format&fit=crop&q=80&w=1000',
     link: 'https://github.com/utkarshgupta188/meowtv'
   },
   {
+    title: 'GitDude',
+    category: 'AI CLI Tool',
+    role: 'Core Developer',
+    description: 'AI-powered CLI tool that converts natural language to Git actions with multi-LLM support.',
+    image: '/projects/gitdude.png',
+    link: 'https://github.com/utkarshgupta188/gitdude'
+  },
+  {
     title: 'CodeFlux',
     category: 'AI Gateway',
-    role: 'Core Architect',
-    description: 'Intelligent AI routing gateway for autonomous agentic analysis.',
+    role: 'System Architect',
+    description: 'Intelligent AI routing gateway for autonomous agentic analysis and code management.',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1000',
     link: 'https://github.com/utkarshgupta188/codeflux'
   },
@@ -21,17 +29,25 @@ const projects = [
     title: 'Meow CLI',
     category: 'Terminal Tool',
     role: 'Lead Developer',
-    description: 'The purr-fect streamer from your terminal.',
+    description: 'The purr-fect streamer from your terminal, engineered for fast content delivery.',
     image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=1000',
     link: 'https://github.com/utkarshgupta188/meow-cli'
   },
   {
     title: 'Dora Music',
     category: 'Audio Streaming',
-    role: 'UI/UX Designer',
-    description: 'Modern web-based music player with Glassmorphism UI.',
+    role: 'Full-stack Dev',
+    description: 'Modern web-based music player with Glassmorphism UI and infinite radio streaming.',
     image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=1000',
     link: 'https://github.com/utkarshgupta188/dora-music'
+  },
+  {
+    title: 'Attendance Tracker',
+    category: 'Data Scraper',
+    role: 'Solo Developer',
+    description: 'Custom API using BeautifulSoup to scrape and provide subject-wise attendance data.',
+    image: '/projects/attendance.png',
+    link: 'https://github.com/utkarshgupta188/attendance-tracker'
   }
 ];
 

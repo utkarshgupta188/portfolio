@@ -3,28 +3,20 @@ import React from 'react';
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center px-8 relative">
-      {/* Corner Status Labels */}
-      <div className="absolute top-32 left-8 font-mono text-[10px] uppercase tracking-widest text-black/40 reveal">
-        [ Available for project ]
-      </div>
-      <div className="absolute top-32 right-8 font-mono text-[10px] uppercase tracking-widest text-black/40 text-right reveal">
-        [ Utkarsh Gupta / 2026 ]
-      </div>
-
-      <div className="max-w-6xl">
+      <div className="max-w-6xl relative z-10">
         <h1 className="text-6xl sm:text-8xl md:text-[10rem] leading-[0.9] reveal">
           Creative <br />
-          <span className="text-italic font-sans font-light lowercase">Data</span> Scientist
+          <span className="text-italic font-sans font-light lowercase">Web</span> Developer
         </h1>
         
         <div className="mt-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <p className="max-w-md text-zinc-500 text-lg leading-relaxed reveal">
-            Focusing on the intersection of Data Science, LLMs, and Human-Centric Design. Currently building intelligent systems at LNCT Group of Colleges.
+            Focusing on the intersection of Full-stack Development, AI, and Human-Centric Design. Currently building intelligent systems at LNCT Group of Colleges.
           </p>
           
           <div className="flex flex-col gap-2 reveal">
             <span className="font-mono text-[10px] uppercase tracking-widest text-black/40">[ Based in ]</span>
-            <span className="font-mono text-xs uppercase tracking-widest">Sonbhadra, UP, India</span>
+            <span className="font-mono text-xs uppercase tracking-widest">Bhopal, India</span>
           </div>
         </div>
       </div>

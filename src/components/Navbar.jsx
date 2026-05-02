@@ -1,8 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const menuItems = [
     { name: 'Home', href: '#home' },
@@ -15,9 +29,14 @@ const Navbar = () => {
   return (
     <>
       <nav className="fixed top-0 left-0 w-full z-[100] px-8 py-6 flex justify-between items-center mix-blend-difference pointer-events-none">
-        <a href="#home" className="text-white font-mono font-bold text-xl tracking-tighter pointer-events-auto uppercase">
+        <motion.a 
+          href="#home" 
+          animate={{ opacity: isScrolled ? 0 : 1, y: isScrolled ? -20 : 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="text-white font-mono font-bold text-xl tracking-tighter pointer-events-auto uppercase"
+        >
           Utkarsh Gupta
-        </a>
+        </motion.a>
         <button 
           onClick={() => setIsOpen(!isOpen)}
           className="text-white font-mono font-bold uppercase tracking-widest text-xs flex items-center gap-2 pointer-events-auto group"

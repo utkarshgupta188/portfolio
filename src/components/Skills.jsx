@@ -2,20 +2,20 @@ import React from 'react';
 
 const skillGroups = [
   {
-    category: 'AI / ML',
-    skills: ['Large Language Models', 'Data Science', 'PyTorch', 'Scikit-learn', 'NumPy', 'Pandas']
+    category: 'Programming',
+    skills: ['Python', 'JavaScript', 'TypeScript', 'PHP', 'C++', 'C', 'R']
   },
   {
-    category: 'Languages',
-    skills: ['Python', 'JavaScript', 'TypeScript', 'PHP', 'C++', 'R']
+    category: 'Data Science / AI',
+    skills: ['Large Language Models', 'Data Analysis', 'PyTorch', 'Scikit-learn', 'NumPy', 'Pandas', 'Matplotlib']
   },
   {
-    category: 'Frontend',
-    skills: ['React', 'Next.js', 'Vite', 'Tailwind CSS', 'Framer Motion']
+    category: 'Backend / DB',
+    skills: ['FastAPI', 'Node.js', 'Flask', 'MySQL', 'PostgreSQL', 'Redis', 'Firebase']
   },
   {
-    category: 'Backend & Cloud',
-    skills: ['Node.js', 'FastAPI', 'Docker', 'Vercel', 'PostgreSQL', 'Firebase']
+    category: 'Frontend / Tools',
+    skills: ['React', 'Next.js', 'Vite', 'Git', 'Docker', 'Selenium', 'Postman', 'Nginx']
   }
 ];
 
@@ -44,6 +44,7 @@ const Skills = () => {
         ))}
       </div>
 
+
       {/* Certifications Mini Section */}
       <div className="mt-32 pt-32 border-t border-black/10">
         <div className="flex flex-col md:flex-row gap-16">
@@ -52,11 +53,10 @@ const Skills = () => {
           </div>
           <div className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              'Oracle Cloud GenAI Professional',
-              'Python for Data Science',
-              'PHP MySQL PDO Specialist',
-              'Introduction to IoT',
-              'Postman Flows Certification'
+              'Postman API Fundamentals Student Expert',
+              'OCI 2025 Certified Generative AI Professional',
+              'Python Development & Data Science',
+              'PHP for Beginners: The Complete PHP MySQL PDO Course'
             ].map((cert) => (
               <div key={cert} className="flex items-start gap-4 reveal">
                 <span className="font-mono text-[10px] text-black/20 mt-1">/</span>
