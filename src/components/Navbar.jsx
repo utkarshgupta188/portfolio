@@ -80,8 +80,9 @@ const Navbar = () => {
                 <a href="mailto:guptautkarsh231220@gmail.com" className="text-white/40 hover:text-white font-mono text-xs uppercase tracking-widest transition-colors">Email</a>
               </div>
               <a 
-                href="/resume.pdf" 
+                href="https://utkarshgupta.rf.gd/resume.pdf" 
                 target="_blank"
+                rel="noopener noreferrer"
                 className="category-pill !border-white/20 !text-white hover:bg-white hover:text-black transition-all"
               >
                 View Resume
