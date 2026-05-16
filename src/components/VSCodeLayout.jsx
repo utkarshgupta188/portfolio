@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Folder, Search, GitBranch, File, X, ChevronRight, ChevronDown, Settings, Bell, User, Cpu, Mail, Briefcase, FileCode, Blocks, Play, Download } from 'lucide-react';
+import { Folder, Search, GitBranch, File, X, ChevronRight, ChevronDown, Settings, Bell, User, Cpu, Mail, Briefcase, FileCode, Blocks, Play, Download, Plus, Undo, RotateCcw, Check, MoreHorizontal } from 'lucide-react';
 
 const ResumeMd = () => (
   <div className="p-6 font-mono text-white/80 max-w-4xl mx-auto">
@@ -800,21 +800,38 @@ const VSCodeLayout = () => {
 
           {activeSidebar === 'git' && (
             <>
-              <div className="p-3 text-xs uppercase font-bold text-white/60">Source Control</div>
-              <div className="p-4 text-xs text-white/40 flex flex-col gap-2">
-                <div className="flex justify-between items-center text-white/60 bg-[#37373d] p-1.5 rounded">
-                  <span>Changes</span>
-                  <span className="bg-[#007acc] text-white px-1.5 rounded-full text-[10px]">0</span>
+              <div className="p-3 text-xs uppercase font-bold text-white/60 flex justify-between items-center">
+                <span>Source Control</span>
+                <div className="flex gap-2 text-white/40">
+                  <RotateCcw size={14} className="cursor-pointer hover:text-white" title="Refresh" />
+                  <Check size={14} className="cursor-pointer hover:text-white" title="Commit" />
+                  <MoreHorizontal size={14} className="cursor-pointer hover:text-white" />
                 </div>
-                <div className="mt-2 text-zinc-500">// Your branch is up to date with origin/main.</div>
+              </div>
+              <div className="p-3 text-xs flex flex-col gap-3">
+                {/* Commit Message Box */}
+                <div className="flex flex-col gap-2">
+                  <textarea
+                    placeholder="Message (Ctrl+Enter to commit)"
+                    className="w-full bg-[#3c3c3c] text-white p-2 text-xs border border-[#555555] focus:border-[#007acc] focus:outline-none resize-none h-16 rounded"
+                  />
+                  <button className="bg-[#007acc] hover:bg-[#005f9e] text-white py-1 rounded text-xs font-bold transition-colors">
+                    Commit
+                  </button>
+                </div>
 
-                <div className="mt-4">
-                  <div className="text-white/60 mb-1">Git Graph</div>
-                  <div className="font-mono text-[10px] text-zinc-500">
-                    <div>* <span className="text-green-400">a1b2c3d</span> (HEAD) Add MeowTV</div>
-                    <div>| * <span className="text-blue-400">e5f6g7h</span> Fix theme issue</div>
-                    <div>|/</div>
-                    <div>* <span className="text-yellow-400">i9j0k1l</span> Initial commit</div>
+                {/* Changes List (Empty) */}
+                <div>
+                  <div className="flex justify-between items-center text-white/60 text-xs font-bold uppercase mb-1">
+                    <div className="flex items-center gap-1">
+                      <ChevronDown size={12} />
+                      <span>Changes</span>
+                    </div>
+                    <span className="bg-[#37373d] text-white/40 px-1.5 rounded-full text-[10px]">0</span>
+                  </div>
+                  
+                  <div className="text-zinc-500 italic text-center py-4 text-[11px]">
+                    No changes detected. Your branch is up to date with origin/main.
                   </div>
                 </div>
               </div>
