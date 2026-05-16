@@ -4,14 +4,14 @@ import { Folder, Search, GitBranch, File, X, ChevronRight, ChevronDown, Settings
 
 const ResumeMd = () => (
   <div className="p-6 font-mono text-white/80 max-w-4xl mx-auto">
-    <div className="flex justify-between items-start mb-6">
+    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
       <div>
-        <div className="text-3xl font-bold text-white mb-2"># Utkarsh Gupta</div>
-        <div className="text-blue-400 text-lg">Full-Stack Developer & AI Architect</div>
+        <div className="text-2xl sm:text-3xl font-bold text-white mb-1"># Utkarsh Gupta</div>
+        <div className="text-blue-400 text-base sm:text-lg">Full-Stack Developer & AI Architect</div>
       </div>
       <button 
         onClick={() => window.open('https://utkarshgupta.rf.gd/resume.pdf', '_blank')}
-        className="inline-flex items-center gap-2 bg-[#007acc] hover:bg-[#005f9e] text-white px-4 py-2 rounded transition-colors font-bold uppercase text-xs border-none cursor-pointer"
+        className="inline-flex items-center gap-2 bg-[#007acc] hover:bg-[#005f9e] text-white px-4 py-2 rounded transition-colors font-bold uppercase text-xs border-none cursor-pointer flex-shrink-0 self-start sm:self-center"
       >
         <Download size={14} />
         Download
@@ -20,12 +20,12 @@ const ResumeMd = () => (
     
     <div className="text-yellow-400 font-bold text-xl mt-6 border-b border-zinc-700 pb-2 mb-4">## Experience</div>
     <div className="mb-4">
-      <div className="flex justify-between items-center text-white font-bold">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white font-bold gap-1">
         <span>Software Developer (Freelance)</span>
-        <span className="text-zinc-400 text-sm">2023 - Present</span>
+        <span className="text-zinc-400 text-xs sm:text-sm">2023 - Present</span>
       </div>
-      <div className="text-pink-400 italic">Self-Employed</div>
-      <ul className="list-disc ml-6 mt-2 text-zinc-300">
+      <div className="text-pink-400 italic text-sm">Self-Employed</div>
+      <ul className="list-disc ml-6 mt-2 text-zinc-300 text-sm">
         <li>Developed high-performance streaming platforms like Meowly using Next.js.</li>
         <li>Architected scalable real-time communication systems like Omiro using Go, Redis, and WebRTC.</li>
         <li>Built AI-powered applications such as GitDude and MindMate integrating advanced LLM workflows.</li>
@@ -34,12 +34,12 @@ const ResumeMd = () => (
 
     <div className="text-yellow-400 font-bold text-xl mt-8 border-b border-zinc-700 pb-2 mb-4">## Education</div>
     <div className="mb-4">
-      <div className="flex justify-between items-center text-white font-bold">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white font-bold gap-1">
         <span>B.Tech in Computer Science</span>
-        <span className="text-zinc-400 text-sm">2024 - 2028</span>
+        <span className="text-zinc-400 text-xs sm:text-sm">2024 - 2028</span>
       </div>
-      <div className="text-pink-400 italic">LNCT Group of Colleges, Bhopal</div>
-      <div className="text-zinc-300 mt-1">Focusing on Artificial Intelligence, Machine Learning, and Web Technologies.</div>
+      <div className="text-pink-400 italic text-sm">LNCT Group of Colleges, Bhopal</div>
+      <div className="text-zinc-300 mt-1 text-sm">Focusing on Artificial Intelligence, Machine Learning, and Web Technologies.</div>
     </div>
 
     <div className="text-yellow-400 font-bold text-xl mt-8 border-b border-zinc-700 pb-2 mb-4">## Core Skills</div>
@@ -285,8 +285,13 @@ const PackageJson = () => (
     <div className="ml-4"><span className="text-blue-400">"private"</span>: <span className="text-blue-400">true</span>,</div>
     <div className="ml-4"><span className="text-blue-400">"dependencies"</span>: {`{`}</div>
     <div className="ml-8"><span className="text-blue-400">"react"</span>: <span className="text-amber-300">"^18.2.0"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"react-dom"</span>: <span className="text-amber-300">"^18.2.0"</span>,</div>
     <div className="ml-8"><span className="text-blue-400">"framer-motion"</span>: <span className="text-amber-300">"^10.16.4"</span>,</div>
     <div className="ml-8"><span className="text-blue-400">"lucide-react"</span>: <span className="text-amber-300">"^0.284.0"</span></div>
+    <div className="ml-4">{`}`},</div>
+    <div className="ml-4"><span className="text-blue-400">"devDependencies"</span>: {`{`}</div>
+    <div className="ml-8"><span className="text-blue-400">"tailwindcss"</span>: <span className="text-amber-300">"^3.4.1"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"vite"</span>: <span className="text-amber-300">"^5.0.0"</span></div>
     <div className="ml-4">{`}`}</div>
     <div className="text-yellow-400">{`}`}</div>
   </div>
@@ -329,6 +334,9 @@ const VSCodeLayout = () => {
   const [showMinimap, setShowMinimap] = useState(false);
   const [isSrcOpen, setIsSrcOpen] = useState(true);
   const [explorerMenuOpen, setExplorerMenuOpen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
+  const [isLockModalOpen, setIsLockModalOpen] = useState(false);
 
   React.useEffect(() => {
     if (terminalRef.current) {
@@ -563,6 +571,9 @@ const VSCodeLayout = () => {
     if (!openFiles.includes(filename)) {
       setOpenFiles([...openFiles, filename]);
     }
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      setActiveSidebar(null);
+    }
   };
 
   const handleCloseFile = (filename, e) => {
@@ -573,6 +584,33 @@ const VSCodeLayout = () => {
       setActiveFile(updatedOpenFiles[0] || '');
     }
   };
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  };
+
+  if (isClosed) {
+    return (
+      <div className="h-screen w-screen bg-[#0000aa] text-white font-mono flex flex-col justify-center items-center p-6 select-none text-center">
+        <div className="text-8xl font-bold mb-6">:(</div>
+        <div className="text-xl sm:text-2xl mb-4 max-w-2xl">A problem has been detected and your portfolio has been shut down to prevent damage to your computer.</div>
+        <div className="text-sm text-white/60 mb-10">PORTFOLIO_ERROR_SYSTEM_CRASH</div>
+        <div className="text-sm mb-6">If this is the first time you've seen this stop error screen, click below to restart.</div>
+        <button 
+          onClick={() => setIsClosed(false)} 
+          className="bg-white text-[#0000aa] px-6 py-3 font-bold uppercase cursor-pointer hover:bg-zinc-200 border-none rounded shadow-lg transition-colors"
+        >
+          Restart Portfolio
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col h-screen font-sans overflow-hidden relative" style={{ backgroundColor: currentTheme.bg, color: currentTheme.text }}>
@@ -602,9 +640,9 @@ const VSCodeLayout = () => {
             <Play size={14} />
           </div>
           <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-            <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
+            <div className="w-3 h-3 rounded-full bg-[#ff5f56] cursor-pointer" title="Close" onClick={(e) => { e.stopPropagation(); setIsClosed(true); }} />
+            <div className="w-3 h-3 rounded-full bg-[#ffbd2e] cursor-pointer" title="Minimize" onClick={(e) => { e.stopPropagation(); setIsLockModalOpen(true); }} />
+            <div className="w-3 h-3 rounded-full bg-[#27c93f] cursor-pointer" title="Toggle Fullscreen" onClick={toggleFullscreen} />
           </div>
         </div>
       </div>
@@ -615,25 +653,25 @@ const VSCodeLayout = () => {
           <div className="flex flex-col items-center gap-6 w-full">
             <div
               className={`${activeSidebar === 'explorer' ? 'text-white border-l-2 border-blue-500' : 'text-white/40'} w-full flex justify-center py-1 cursor-pointer hover:text-white transition-colors`}
-              onClick={() => setActiveSidebar('explorer')}
+              onClick={() => setActiveSidebar(activeSidebar === 'explorer' ? null : 'explorer')}
             >
               <Folder size={20} />
             </div>
             <div
               className={`${activeSidebar === 'search' ? 'text-white border-l-2 border-blue-500' : 'text-white/40'} w-full flex justify-center py-1 cursor-pointer hover:text-white transition-colors`}
-              onClick={() => setActiveSidebar('search')}
+              onClick={() => setActiveSidebar(activeSidebar === 'search' ? null : 'search')}
             >
               <Search size={20} />
             </div>
             <div
               className={`${activeSidebar === 'git' ? 'text-white border-l-2 border-blue-500' : 'text-white/40'} w-full flex justify-center py-1 cursor-pointer hover:text-white transition-colors`}
-              onClick={() => setActiveSidebar('git')}
+              onClick={() => setActiveSidebar(activeSidebar === 'git' ? null : 'git')}
             >
               <GitBranch size={20} />
             </div>
             <div
               className={`${activeSidebar === 'extensions' ? 'text-white border-l-2 border-blue-500' : 'text-white/40'} w-full flex justify-center py-1 cursor-pointer hover:text-white transition-colors`}
-              onClick={() => setActiveSidebar('extensions')}
+              onClick={() => setActiveSidebar(activeSidebar === 'extensions' ? null : 'extensions')}
             >
               <Blocks size={20} />
             </div>
@@ -641,13 +679,13 @@ const VSCodeLayout = () => {
           <div className="flex flex-col items-center gap-6 w-full">
             <div
               className={`${activeSidebar === 'profile' ? 'text-white border-l-2 border-blue-500' : 'text-white/40'} w-full flex justify-center py-1 cursor-pointer hover:text-white transition-colors`}
-              onClick={() => setActiveSidebar('profile')}
+              onClick={() => setActiveSidebar(activeSidebar === 'profile' ? null : 'profile')}
             >
               <User size={20} />
             </div>
             <div
               className={`${activeSidebar === 'settings' ? 'text-white border-l-2 border-blue-500' : 'text-white/40'} w-full flex justify-center py-1 cursor-pointer hover:text-white transition-colors`}
-              onClick={() => setActiveSidebar('settings')}
+              onClick={() => setActiveSidebar(activeSidebar === 'settings' ? null : 'settings')}
             >
               <Settings size={20} />
             </div>
@@ -655,7 +693,7 @@ const VSCodeLayout = () => {
         </div>
 
         {/* Sidebar */}
-        <div className={`w-60 flex flex-col text-sm select-none border-r border-[#1e1e1e] ${zenMode ? 'hidden' : ''}`} style={{ backgroundColor: currentTheme.sidebar }}>
+        <div className={`${activeSidebar ? 'w-full md:w-60 flex' : 'hidden'} flex-col text-sm select-none border-r border-[#1e1e1e] ${zenMode ? 'hidden' : ''}`} style={{ backgroundColor: currentTheme.sidebar }}>
           {activeSidebar === 'explorer' && (
             <>
               <div className="p-3 text-xs uppercase font-bold text-white/60 flex justify-between items-center relative">
@@ -980,7 +1018,7 @@ const VSCodeLayout = () => {
         </div>
 
         {/* Main Editor Area */}
-        <div className="flex-1 flex flex-col overflow-hidden" style={{ backgroundColor: currentTheme.bg }}>
+        <div className={`flex-1 flex flex-col overflow-hidden ${activeSidebar ? 'hidden md:flex' : 'flex'}`} style={{ backgroundColor: currentTheme.bg }}>
           {/* Tabs */}
           <div className="flex overflow-x-auto text-sm select-none no-scrollbar" style={{ backgroundColor: currentTheme.tabs }}>
             {openFiles.map(file => (
@@ -1090,12 +1128,12 @@ const VSCodeLayout = () => {
             <GitBranch size={12} />
             <span>main</span>
           </div>
-          <span className="flex items-center gap-1"><span className="text-xs">⊗</span> 0 <span className="text-xs">⚠</span> 0</span>
+          <span className="hidden sm:flex items-center gap-1"><span className="text-xs">⊗</span> 0 <span className="text-xs">⚠</span> 0</span>
         </div>
-        <div className="flex gap-4 items-center">
-          <span>Ln 1, Col 1</span>
-          <span>Spaces: 2</span>
-          <span>UTF-8</span>
+        <div className="flex gap-4 items-center whitespace-nowrap">
+          <span className="hidden sm:inline">Ln 1, Col 1</span>
+          <span className="hidden sm:inline">Spaces: 2</span>
+          <span className="hidden sm:inline">UTF-8</span>
           <span>{
             activeFile.endsWith('.jsx') ? 'JavaScript React' :
             activeFile.endsWith('.js') ? 'JavaScript' :
@@ -1106,6 +1144,30 @@ const VSCodeLayout = () => {
           <Bell size={12} />
         </div>
       </div>
+
+      {isLockModalOpen && (
+        <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-[100] p-4">
+          <div className="bg-[#252526] border border-[#333] shadow-2xl rounded-lg p-6 max-w-sm w-full text-white font-sans">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-red-600 flex items-center justify-center rounded-full text-white font-bold text-xl flex-shrink-0">
+                !
+              </div>
+              <div className="font-bold text-lg">System Restriction</div>
+            </div>
+            <div className="text-white/80 text-sm mb-6">
+              This window is locked and cannot be minimized. Contact administrator to use it.
+            </div>
+            <div className="flex justify-end">
+              <button 
+                onClick={() => setIsLockModalOpen(false)}
+                className="bg-[#007acc] hover:bg-[#005f9e] text-white px-5 py-1.5 rounded text-sm font-bold cursor-pointer transition-colors border-none"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
