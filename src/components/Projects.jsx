@@ -3,12 +3,12 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const projects = [
   {
-    title: 'MeowTV',
+    title: 'Meowly',
     category: 'Streaming Platform',
     role: 'Lead Developer',
     description: 'Modern streaming platform for anime and TV shows with Next.js and TypeScript.',
-    image: 'https://images.unsplash.com/photo-1574375927938-d5a98e898ad7?auto=format&fit=crop&q=80&w=1000',
-    link: 'https://github.com/utkarshgupta188/meowtv'
+    image: '/projects/meowly.png',
+    link: 'https://github.com/utkarshgupta188/meowly'
   },
   {
     title: 'GitDude',
@@ -39,7 +39,7 @@ const projects = [
     category: 'Audio Streaming',
     role: 'Full-stack Dev',
     description: 'Modern web-based music player with Glassmorphism UI and infinite radio streaming.',
-    image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=1000',
+    image: '/projects/dora.png',
     link: 'https://github.com/utkarshgupta188/dora-music'
   },
   {
@@ -73,12 +73,12 @@ const ProjectCard = ({ project, index }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: index % 2 * 0.1, ease: [0.16, 1, 0.3, 1] }}
     >
-      <div className="relative aspect-[4/5] overflow-hidden bg-zinc-200">
+      <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
         <motion.img 
           style={{ scale: 1.1, y }}
           src={project.image} 
           alt={project.title}
-          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out"
+          className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700 ease-out"
         />
         <div className="absolute top-4 right-4 category-pill bg-white/90 backdrop-blur opacity-0 group-hover:opacity-100 transition-opacity">
           View Project
