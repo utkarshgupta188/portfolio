@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @theme {
   --font-mono: "IBM Plex Mono", monospace;
   --font-sans: "Inter", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+  --font-cursive: "Sacramento", cursive;
 
   --color-bg: #F2F2F2;
   --color-text: #000000;

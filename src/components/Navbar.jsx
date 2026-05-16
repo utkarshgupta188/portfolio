@@ -33,7 +33,7 @@ const Navbar = () => {
           href="#home" 
           animate={{ opacity: isScrolled ? 0 : 1, y: isScrolled ? -20 : 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="text-white font-mono font-bold text-xl tracking-tighter pointer-events-auto uppercase"
+          className="text-white font-cursive text-3xl pointer-events-auto"
         >
           Utkarsh Gupta
         </motion.a>
