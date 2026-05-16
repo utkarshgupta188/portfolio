@@ -73,7 +73,7 @@ const ProjectCard = ({ project, index }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: index % 2 * 0.1, ease: [0.16, 1, 0.3, 1] }}
     >
-      <div className="relative aspect-[4/5] overflow-hidden bg-zinc-900">
+      <div className="relative aspect-[16/9] overflow-hidden bg-zinc-900">
         <motion.img 
           style={{ scale: 1.1, y }}
           src={project.image} 
@@ -119,7 +119,7 @@ const Projects = () => {
         <h2 className="text-3xl md:text-6xl uppercase">Selected <span className="text-italic font-sans font-light lowercase">Works</span></h2>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 md:gap-y-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
         {projects.map((project, index) => (
           <ProjectCard key={project.title} project={project} index={index} />
         ))}
