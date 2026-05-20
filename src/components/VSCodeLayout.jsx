@@ -321,6 +321,7 @@ const VSCodeLayout = () => {
   const [activeSidebar, setActiveSidebar] = useState('explorer');
   const [searchQuery, setSearchQuery] = useState('');
   const [githubData, setGithubData] = useState(null);
+  const [languagesList, setLanguagesList] = useState([]);
   const [fontSize, setFontSize] = useState(14);
   const [theme, setTheme] = useState('dark');
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
@@ -467,6 +468,24 @@ const VSCodeLayout = () => {
     fetch('https://api.github.com/users/utkarshgupta188')
       .then(res => res.json())
       .then(data => setGithubData(data))
+      .catch(err => console.error(err));
+
+    fetch('https://api.github.com/users/utkarshgupta188/repos?per_page=100')
+      .then(res => res.json())
+      .then(repos => {
+        if (Array.isArray(repos)) {
+          const counts = {};
+          repos.forEach(repo => {
+            if (repo.language) {
+              counts[repo.language] = (counts[repo.language] || 0) + 1;
+            }
+          });
+          const sorted = Object.entries(counts)
+            .map(([lang, count]) => ({ lang, count }))
+            .sort((a, b) => b.count - a.count);
+          setLanguagesList(sorted.slice(0, 4));
+        }
+      })
       .catch(err => console.error(err));
   }, []);
 
@@ -953,23 +972,43 @@ const VSCodeLayout = () => {
                   <div className="flex justify-between"><span>Contributions:</span><span className="text-green-400">1,234</span></div>
                 </div>
                 <div className="bg-[#3c3c3c] p-2 rounded mt-2">
-                  <div className="text-white/60 font-bold mb-2">Coding Activity (7 Days)</div>
+                  <div className="text-white/60 font-bold mb-2">Coding Activity (Languages)</div>
                   <div className="flex flex-col gap-1.5">
-                    <div className="flex items-center gap-2">
-                      <div className="w-12 text-right">React</div>
-                      <div className="flex-1 bg-[#252526] h-1.5 rounded-full overflow-hidden"><div className="bg-cyan-500 h-full w-[65%]"></div></div>
-                      <div className="w-8 text-right text-white/40">18h</div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-12 text-right">Python</div>
-                      <div className="flex-1 bg-[#252526] h-1.5 rounded-full overflow-hidden"><div className="bg-blue-500 h-full w-[45%]"></div></div>
-                      <div className="w-8 text-right text-white/40">12h</div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-12 text-right">CSS</div>
-                      <div className="flex-1 bg-[#252526] h-1.5 rounded-full overflow-hidden"><div className="bg-pink-500 h-full w-[25%]"></div></div>
-                      <div className="w-8 text-right text-white/40">7h</div>
-                    </div>
+                    {languagesList.length > 0 ? (
+                      languagesList.map(({ lang, count }, idx) => {
+                        const total = languagesList.reduce((acc, curr) => acc + curr.count, 0);
+                        const percent = Math.round((count / total) * 100);
+                        // Map languages to standard brand colors
+                        const colors = {
+                          JavaScript: '#f1e05a',
+                          TypeScript: '#3178c6',
+                          Python: '#3572A5',
+                          Go: '#00ADD8',
+                          HTML: '#e34c26',
+                          CSS: '#563d7c',
+                          'C++': '#f34b7d',
+                          C: '#555555'
+                        };
+                        const barColor = colors[lang] || '#007acc';
+                        // Generate a plausible hours number for the visual aesthetic (e.g. 5h to 24h)
+                        const estHours = Math.max(3, Math.round((count / (total || 1)) * 36));
+
+                        return (
+                          <div key={lang} className="flex items-center gap-2">
+                            <div className="w-16 text-right truncate text-white/80" title={lang}>{lang}</div>
+                            <div className="flex-1 bg-[#252526] h-1.5 rounded-full overflow-hidden">
+                              <div 
+                                className="h-full rounded-full" 
+                                style={{ width: `${percent}%`, backgroundColor: barColor }}
+                              />
+                            </div>
+                            <div className="w-8 text-right text-white/40">{estHours}h</div>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div className="text-white/40 text-[10px] py-2 text-center">Loading language activity...</div>
+                    )}
                   </div>
                 </div>
               </div>

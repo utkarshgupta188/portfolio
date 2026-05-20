@@ -209,63 +209,116 @@
 
 <body>
   <noscript>
-    <header class="ns-header">
+    <div style="max-width:600px;margin:2rem auto;padding:1.5rem;font-family:sans-serif;color:#fff;background:#222;text-align:center;border-radius:8px;">
+      <h1>Utkarsh Gupta — Portfolio</h1>
+      <p>This interactive portfolio mimicking a VS Code IDE requires JavaScript to function correctly.</p>
+      <p>Please enable JavaScript or view the semantic version of the site below.</p>
+    </div>
+  </noscript>
+
+  <!-- Visually Hidden Semantic HTML for Search Engine Crawlers & Screen Readers -->
+  <div style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;">
+    <header>
       <h1>Utkarsh Gupta — Full-Stack Developer & AI Architect</h1>
-      <p>Full-stack developer based in Bhopal, India. I build streaming platforms, AI-powered developer tools, and scalable real-time communication systems using React, Next.js, Python, Go, and WebRTC.</p>
+      <p>Full-stack developer from Bhopal, India. Specialist in building streaming platforms, AI CLI developer tools, and scalable real-time systems using React, Next.js, Python, Go, and WebRTC.</p>
+      
+      <!-- Internal Links / Navigation Table of Contents -->
+      <nav aria-label="Table of Contents">
+        <ul>
+          <li><a href="#about-me">About Utkarsh Gupta</a></li>
+          <li><a href="#featured-projects">Featured Software Projects</a></li>
+          <li><a href="#technical-skills">Core Programming Skills</a></li>
+          <li><a href="#work-experience">Software Development Experience</a></li>
+          <li><a href="#contact-info">Contact Information</a></li>
+        </ul>
+      </nav>
     </header>
-    <main class="ns-main">
-      <section>
+
+    <main>
+      <section id="about-me">
         <h2>About Utkarsh Gupta</h2>
-        <p>I'm a B.Tech Computer Science student at LNCT Group of Colleges, Bhopal, focused on Artificial Intelligence, Machine Learning, and Web Technologies. I specialize in engineering production-ready AI platforms and robust streaming architectures. My tech stack includes JavaScript, TypeScript, Python, Go, C++, React, Next.js, FastAPI, Node.js, WebSockets, WebRTC, PostgreSQL, Redis, and Docker.</p>
+        <p>I'm a B.Tech Computer Science student at LNCT Group of Colleges, Bhopal, focusing on Artificial Intelligence, Machine Learning, and Web Technologies. My technical stack includes JavaScript, TypeScript, Python, Go, C++, React, Next.js, FastAPI, Node.js, WebSockets, WebRTC, PostgreSQL, Redis, and Docker. I design and build production-ready AI platforms and scalable streaming architectures.</p>
       </section>
-      <section>
-        <h2>Featured Projects</h2>
-        <article>
+
+      <section id="featured-projects">
+        <h2>Featured Software Projects</h2>
+        <nav aria-label="Projects list">
+          <ul>
+            <li><a href="#project-meowly">Meowly Streaming Platform</a></li>
+            <li><a href="#project-gitdude">GitDude AI Git CLI</a></li>
+            <li><a href="#project-codeflux">CodeFlux AI Routing Gateway</a></li>
+            <li><a href="#project-omiro">Omiro WebRTC Matching System</a></li>
+            <li><a href="#project-dora">Dora Music Web Audio Player</a></li>
+          </ul>
+        </nav>
+
+        <article id="project-meowly">
           <h3>Meowly — Next.js Streaming Platform</h3>
           <p>Modern streaming platform for anime and TV shows built with Next.js and TypeScript, handling concurrent viewers with adaptive bitrate delivery.</p>
+          <p>Link: <a href="https://meowly.qzz.io" target="_blank" rel="noopener noreferrer">Visit Meowly Live</a></p>
         </article>
-        <article>
+
+        <article id="project-gitdude">
           <h3>GitDude — AI-Powered Git CLI Tool</h3>
           <p>CLI tool that converts natural language to Git actions with multi-LLM support. Published on PyPI.</p>
+          <p>Link: <a href="https://pypi.org/project/gitdude" target="_blank" rel="noopener noreferrer">Download GitDude on PyPI</a></p>
         </article>
-        <article>
+
+        <article id="project-codeflux">
           <h3>CodeFlux — Intelligent AI Gateway</h3>
           <p>AI routing gateway for autonomous agentic code analysis and management across multiple LLM providers.</p>
+          <p>Link: <a href="https://github.com/utkarshgupta188/codeflux" target="_blank" rel="noopener noreferrer">CodeFlux Repository on GitHub</a></p>
         </article>
-        <article>
+
+        <article id="project-omiro">
           <h3>Omiro — Real-Time WebRTC System</h3>
           <p>Scalable real-time chat and WebRTC video matching system built with Go, Redis, WebSockets, and microservices architecture.</p>
+          <p>Link: <a href="https://github.com/utkarshgupta188/omiro" target="_blank" rel="noopener noreferrer">Omiro Repository on GitHub</a></p>
         </article>
-        <article>
+
+        <article id="project-dora">
           <h3>Dora Music — Web Audio Player</h3>
           <p>Modern web-based music player with Glassmorphism UI and infinite radio streaming capabilities.</p>
+          <p>Link: <a href="https://dora-music.vercel.app" target="_blank" rel="noopener noreferrer">Listen to Dora Music Live</a></p>
+        </article>
+      </section>
+
+      <section id="technical-skills">
+        <h2>Core Programming Skills</h2>
+        <ul>
+          <li><strong>Languages:</strong> JavaScript, TypeScript, Python, Go, C++, PHP, C, R</li>
+          <li><strong>Frontend Web:</strong> React, Next.js, Tailwind CSS, Vite, Electron, Tauri</li>
+          <li><strong>Backend &amp; AI:</strong> Node.js, FastAPI, Flask, WebSockets, WebRTC, LLMs, PyTorch</li>
+          <li><strong>Databases:</strong> PostgreSQL, MySQL, Redis, Firebase</li>
+          <li><strong>DevOps:</strong> Git, Docker, Microservices, Nginx, Linux</li>
+        </ul>
+      </section>
+
+      <section id="work-experience">
+        <h2>Software Development Experience</h2>
+        <article>
+          <h3>Freelance Software Developer (Self-Employed)</h3>
+          <p>Duration: 2023 - Present</p>
+          <p>Developed high-performance streaming platforms, architected scalable real-time communication systems, and built AI-powered applications integrating advanced LLM workflows.</p>
         </article>
         <article>
-          <h3>Attendance Tracker — Data Scraping API</h3>
-          <p>Custom API using BeautifulSoup to scrape and provide subject-wise attendance data for university students.</p>
+          <h3>B.Tech in Computer Science &amp; AI Student</h3>
+          <p>LNCT Group of Colleges, Bhopal (2024–2028)</p>
+          <p>Focusing on AI, Machine Learning, and Web Development. CGPA: 8.5/10</p>
         </article>
       </section>
-      <section>
-        <h2>Technical Skills</h2>
-        <p><strong>Languages:</strong> JavaScript, TypeScript, Python, Go, C++, PHP, C, R</p>
-        <p><strong>Frontend:</strong> React, Next.js, Tailwind CSS, Vite, Electron, Tauri</p>
-        <p><strong>Backend & AI:</strong> Node.js, FastAPI, Flask, WebSockets, WebRTC, LLMs, PyTorch</p>
-        <p><strong>Databases:</strong> PostgreSQL, MySQL, Redis, Firebase</p>
-        <p><strong>DevOps:</strong> Git, Docker, Microservices, Nginx, Linux</p>
+
+      <section id="contact-info">
+        <h2>Contact Information</h2>
+        <ul>
+          <li>Email: <a href="mailto:guptautkarsh231220@gmail.com">guptautkarsh231220@gmail.com</a></li>
+          <li>GitHub Profile: <a href="https://github.com/utkarshgupta188" target="_blank" rel="noopener noreferrer">github.com/utkarshgupta188</a></li>
+          <li>LinkedIn Profile: <a href="https://linkedin.com/in/utkarshgupta-dev" target="_blank" rel="noopener noreferrer">linkedin.com/in/utkarshgupta-dev</a></li>
+        </ul>
       </section>
-      <section>
-        <h2>Experience</h2>
-        <p><strong>Software Developer (Freelance)</strong> — 2023 to Present. Developed high-performance streaming platforms, architected scalable real-time communication systems, and built AI-powered applications integrating advanced LLM workflows.</p>
-        <p><strong>B.Tech in Computer Science</strong> — LNCT Group of Colleges, Bhopal (2024–2028). Focusing on AI, Machine Learning, and Web Development with 8.5 CGPA.</p>
-      </section>
-      <nav>
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:guptautkarsh231220@gmail.com">guptautkarsh231220@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/utkarshgupta188">github.com/utkarshgupta188</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/utkarshgupta-dev">linkedin.com/in/utkarshgupta-dev</a></p>
-      </nav>
     </main>
-  </noscript>
+  </div>
+
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
