@@ -924,7 +924,7 @@ const VSCodeLayout = () => {
               <div className="p-4 flex flex-col gap-4 text-xs">
                 <div className="flex items-center gap-3">
                   {githubData?.avatar_url ? (
-                    <img src={githubData.avatar_url} alt="Avatar" className="w-10 h-10 rounded-full border border-[#007acc]" />
+                    <img src={githubData.avatar_url} alt="Utkarsh Gupta profile photo" loading="lazy" className="w-10 h-10 rounded-full border border-[#007acc]" />
                   ) : (
                     <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">UG</div>
                   )}

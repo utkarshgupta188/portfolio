@@ -1,6 +1,4 @@
 import OverlayUI from './components/OverlayUI'
-import { useEffect } from 'react'
-import Lenis from 'lenis'
 
 function App() {
   return (
