@@ -1,0 +1,16 @@
+{
+  "name": "Utkarsh Gupta — Full-Stack Developer & AI Architect",
+  "short_name": "Utkarsh Gupta",
+  "description": "Full-stack developer and AI architect specializing in React, Next.js, Python, Go, and scalable real-time systems.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e1e1e",
+  "theme_color": "#1e1e1e",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

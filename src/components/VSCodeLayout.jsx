@@ -61,8 +61,8 @@ const ContactMd = () => (
     <div className="mt-4">Feel free to reach out to me through any of the following channels:</div>
     <div className="mt-4 flex flex-col gap-2">
       <div>- <span className="text-yellow-400">Email:</span> <a href="mailto:guptautkarsh231220@gmail.com" className="text-blue-400 hover:underline">guptautkarsh231220@gmail.com</a></div>
-      <div>- <span className="text-yellow-400">GitHub:</span> <a href="https://github.com/utkarshgupta188" target="_blank" className="text-blue-400 hover:underline">github.com/utkarshgupta188</a></div>
-      <div>- <span className="text-yellow-400">LinkedIn:</span> <a href="https://linkedin.com/in/utkarshgupta-dev" target="_blank" className="text-blue-400 hover:underline">linkedin.com/in/utkarshgupta-dev</a></div>
+      <div>- <span className="text-yellow-400">GitHub:</span> <a href="https://github.com/utkarshgupta188" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">github.com/utkarshgupta188</a></div>
+      <div>- <span className="text-yellow-400">LinkedIn:</span> <a href="https://linkedin.com/in/utkarshgupta-dev" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">linkedin.com/in/utkarshgupta-dev</a></div>
     </div>
     <div className="text-blue-400 font-bold text-lg mt-6">## Let's build something cool!</div>
     <div className="text-zinc-500 mt-2">// I'm always open to new opportunities and collaborations.</div>
