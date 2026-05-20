@@ -1,0 +1,35 @@
+# Utkarsh Gupta — Full-Stack Developer & AI Architect
+
+> Full-stack developer and AI architect based in Bhopal, India. Specializes in React, Next.js, Python, Go, WebRTC, and scalable real-time systems.
+
+## About
+
+Utkarsh Gupta is a B.Tech Computer Science student at LNCT Group of Colleges, Bhopal. He builds production-ready AI platforms, high-performance streaming architectures, and real-time communication systems. His work spans frontend engineering (React, Next.js), backend systems (Node.js, FastAPI, Go), AI/ML (LLMs, PyTorch), and real-time infrastructure (WebRTC, WebSockets, Redis).
+
+## Projects
+
+- [Meowly](https://meowly.qzz.io): Modern anime and TV streaming platform built with Next.js and TypeScript with adaptive bitrate delivery.
+- [GitDude](https://pypi.org/project/gitdude): AI-powered CLI tool converting natural language to Git actions with multi-LLM support. Published on PyPI.
+- [CodeFlux](https://github.com/utkarshgupta188/codeflux): Intelligent AI routing gateway for autonomous agentic code analysis and management.
+- [Omiro](https://github.com/utkarshgupta188/omiro): Scalable real-time chat and WebRTC video matching system using Go, Redis, and microservices.
+- [Dora Music](https://dora-music.vercel.app): Web-based music player with Glassmorphism UI and infinite radio streaming.
+- [Meow CLI](https://pypi.org/project/meowtv): Terminal-based streaming client for browsing and watching content from the command line.
+- [MindMate](https://github.com/utkarshgupta188/mindmate): Mental wellness companion powered by local LLMs for private conversations.
+- [tgupload](https://github.com/utkarshgupta188/tgupload): Zero-cost cloud storage leveraging Telegram infrastructure with FastAPI backend.
+- [Attendance Tracker](https://lnctu.vercel.app): API using BeautifulSoup to scrape subject-wise university attendance data.
+- [MeowTV](https://meowtv.qzz.io): Live TV and on-demand movie streaming platform.
+
+## Technical Skills
+
+- **Languages**: JavaScript, TypeScript, Python, Go, C++, PHP, C, R
+- **Frontend & Cross-Platform**: React, Next.js, Tailwind CSS, Vite, Electron, Tauri, Capacitor
+- **Backend & AI**: Node.js, FastAPI, Flask, WebSockets, WebRTC, LLMs, PyTorch, Scikit-learn
+- **Databases**: PostgreSQL, MySQL, Redis, Firebase
+- **DevOps & Tools**: Git, Docker, Microservices, Nginx, Linux, Selenium, Postman
+
+## Contact
+
+- Email: guptautkarsh231220@gmail.com
+- GitHub: https://github.com/utkarshgupta188
+- LinkedIn: https://linkedin.com/in/utkarshgupta-dev
+- Website: https://utkarshg.vercel.app

@@ -6,7 +6,7 @@ const ResumeMd = () => (
   <div className="p-6 font-mono text-white/80 max-w-4xl mx-auto">
     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
       <div>
-        <div className="text-2xl sm:text-3xl font-bold text-white mb-1"># Utkarsh Gupta</div>
+        <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1"># Utkarsh Gupta</h1>
         <div className="text-blue-400 text-base sm:text-lg">Full-Stack Developer & AI Architect</div>
       </div>
       <button 
@@ -18,7 +18,7 @@ const ResumeMd = () => (
       </button>
     </div>
     
-    <div className="text-yellow-400 font-bold text-xl mt-6 border-b border-zinc-700 pb-2 mb-4">## Experience</div>
+    <h2 className="text-yellow-400 font-bold text-xl mt-6 border-b border-zinc-700 pb-2 mb-4">## Experience</h2>
     <div className="mb-4">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white font-bold gap-1">
         <span>Software Developer (Freelance)</span>
@@ -32,7 +32,7 @@ const ResumeMd = () => (
       </ul>
     </div>
 
-    <div className="text-yellow-400 font-bold text-xl mt-8 border-b border-zinc-700 pb-2 mb-4">## Education</div>
+    <h2 className="text-yellow-400 font-bold text-xl mt-8 border-b border-zinc-700 pb-2 mb-4">## Education</h2>
     <div className="mb-4">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white font-bold gap-1">
         <span>B.Tech in Computer Science</span>
@@ -42,7 +42,7 @@ const ResumeMd = () => (
       <div className="text-zinc-300 mt-1 text-sm">Focusing on Artificial Intelligence, Machine Learning, and Web Technologies.</div>
     </div>
 
-    <div className="text-yellow-400 font-bold text-xl mt-8 border-b border-zinc-700 pb-2 mb-4">## Core Skills</div>
+    <h2 className="text-yellow-400 font-bold text-xl mt-8 border-b border-zinc-700 pb-2 mb-4">## Core Skills</h2>
     <div className="text-zinc-300 leading-relaxed">
       <span className="text-white font-bold">Languages:</span> JavaScript, TypeScript, Python, Go, C++, PHP <br/>
       <span className="text-white font-bold">Frontend & Cross-Platform:</span> React, Next.js, Tailwind CSS, Tauri, Electron <br/>
@@ -57,14 +57,14 @@ const ResumeMd = () => (
 
 const ContactMd = () => (
   <div className="p-6 font-mono text-white/80">
-    <div className="text-blue-400 font-bold text-xl"># Contact Me</div>
+    <h1 className="text-blue-400 font-bold text-xl"># Contact Me</h1>
     <div className="mt-4">Feel free to reach out to me through any of the following channels:</div>
     <div className="mt-4 flex flex-col gap-2">
       <div>- <span className="text-yellow-400">Email:</span> <a href="mailto:guptautkarsh231220@gmail.com" className="text-blue-400 hover:underline">guptautkarsh231220@gmail.com</a></div>
       <div>- <span className="text-yellow-400">GitHub:</span> <a href="https://github.com/utkarshgupta188" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">github.com/utkarshgupta188</a></div>
       <div>- <span className="text-yellow-400">LinkedIn:</span> <a href="https://linkedin.com/in/utkarshgupta-dev" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">linkedin.com/in/utkarshgupta-dev</a></div>
     </div>
-    <div className="text-blue-400 font-bold text-lg mt-6">## Let's build something cool!</div>
+    <h2 className="text-blue-400 font-bold text-lg mt-6">## Let's build something cool!</h2>
     <div className="text-zinc-500 mt-2">// I'm always open to new opportunities and collaborations.</div>
   </div>
 );
@@ -636,13 +636,13 @@ const VSCodeLayout = () => {
               Exit Zen Mode
             </div>
           )}
-          <div className="cursor-pointer hover:text-white" title="Run Code" onClick={handleRunCode}>
+          <div className="cursor-pointer hover:text-white" title="Run Code" aria-label="Run code" role="button" tabIndex={0} onClick={handleRunCode}>
             <Play size={14} />
           </div>
           <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full bg-[#ff5f56] cursor-pointer" title="Close" onClick={(e) => { e.stopPropagation(); setIsClosed(true); }} />
-            <div className="w-3 h-3 rounded-full bg-[#ffbd2e] cursor-pointer" title="Minimize" onClick={(e) => { e.stopPropagation(); setIsLockModalOpen(true); }} />
-            <div className="w-3 h-3 rounded-full bg-[#27c93f] cursor-pointer" title="Toggle Fullscreen" onClick={toggleFullscreen} />
+            <div className="w-3 h-3 rounded-full bg-[#ff5f56] cursor-pointer" title="Close" role="button" aria-label="Close window" tabIndex={0} onClick={(e) => { e.stopPropagation(); setIsClosed(true); }} />
+            <div className="w-3 h-3 rounded-full bg-[#ffbd2e] cursor-pointer" title="Minimize" role="button" aria-label="Minimize window" tabIndex={0} onClick={(e) => { e.stopPropagation(); setIsLockModalOpen(true); }} />
+            <div className="w-3 h-3 rounded-full bg-[#27c93f] cursor-pointer" title="Toggle Fullscreen" role="button" aria-label="Toggle fullscreen" tabIndex={0} onClick={toggleFullscreen} />
           </div>
         </div>
       </div>
@@ -654,24 +654,28 @@ const VSCodeLayout = () => {
             <div
               className={`${activeSidebar === 'explorer' ? 'text-white border-l-2 border-blue-500' : 'text-white/40'} w-full flex justify-center py-1 cursor-pointer hover:text-white transition-colors`}
               onClick={() => setActiveSidebar(activeSidebar === 'explorer' ? null : 'explorer')}
+              role="button" aria-label="Explorer" tabIndex={0}
             >
               <Folder size={20} />
             </div>
             <div
               className={`${activeSidebar === 'search' ? 'text-white border-l-2 border-blue-500' : 'text-white/40'} w-full flex justify-center py-1 cursor-pointer hover:text-white transition-colors`}
               onClick={() => setActiveSidebar(activeSidebar === 'search' ? null : 'search')}
+              role="button" aria-label="Search" tabIndex={0}
             >
               <Search size={20} />
             </div>
             <div
               className={`${activeSidebar === 'git' ? 'text-white border-l-2 border-blue-500' : 'text-white/40'} w-full flex justify-center py-1 cursor-pointer hover:text-white transition-colors`}
               onClick={() => setActiveSidebar(activeSidebar === 'git' ? null : 'git')}
+              role="button" aria-label="Source control" tabIndex={0}
             >
               <GitBranch size={20} />
             </div>
             <div
               className={`${activeSidebar === 'extensions' ? 'text-white border-l-2 border-blue-500' : 'text-white/40'} w-full flex justify-center py-1 cursor-pointer hover:text-white transition-colors`}
               onClick={() => setActiveSidebar(activeSidebar === 'extensions' ? null : 'extensions')}
+              role="button" aria-label="Extensions" tabIndex={0}
             >
               <Blocks size={20} />
             </div>
@@ -680,12 +684,14 @@ const VSCodeLayout = () => {
             <div
               className={`${activeSidebar === 'profile' ? 'text-white border-l-2 border-blue-500' : 'text-white/40'} w-full flex justify-center py-1 cursor-pointer hover:text-white transition-colors`}
               onClick={() => setActiveSidebar(activeSidebar === 'profile' ? null : 'profile')}
+              role="button" aria-label="Profile" tabIndex={0}
             >
               <User size={20} />
             </div>
             <div
               className={`${activeSidebar === 'settings' ? 'text-white border-l-2 border-blue-500' : 'text-white/40'} w-full flex justify-center py-1 cursor-pointer hover:text-white transition-colors`}
               onClick={() => setActiveSidebar(activeSidebar === 'settings' ? null : 'settings')}
+              role="button" aria-label="Settings" tabIndex={0}
             >
               <Settings size={20} />
             </div>
