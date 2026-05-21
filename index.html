@@ -5,6 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Connection Optimizations (Preconnect & DNS-Prefetch) -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
   <!-- Google Site Verification -->
   <meta name="google-site-verification" content="6i58mNF67Sm7thAviinwZaWtgbzMSK2iEV0J7RlmkaY" />
 
@@ -12,216 +20,114 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L06XJG665S"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-L06XJG665S');
   </script>
 
   <!-- Primary SEO Meta Tags -->
   <title>Utkarsh Gupta — Full-Stack Developer & AI Architect</title>
-  <meta name="description" content="Utkarsh Gupta builds streaming platforms, AI tools, and real-time systems with React, Next.js, Python, and Go. Explore projects like Meowly, GitDude, and Omiro." />
-  <meta name="keywords" content="Utkarsh Gupta, full-stack developer, AI architect, React developer, Next.js developer, Python developer, Go developer, portfolio, web developer India, Bhopal developer, software engineer" />
+  <meta name="description"
+    content="Full-stack developer & AI architect building APIs, real-time systems, and AI tools with React, Go, and Python. Explore projects like Meowly & GitDude." />
+  <meta name="keywords"
+    content="Utkarsh Gupta, full-stack developer, AI architect, React developer, Next.js developer, Python developer, Go developer, portfolio, web developer India, Bhopal developer, software engineer" />
   <meta name="author" content="Utkarsh Gupta" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://utkarshg.vercel.app/" />
+  <link rel="canonical" href="https://utkarshgupta.qzz.io/" />
   <meta name="theme-color" content="#1e1e1e" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://utkarshg.vercel.app/" />
+  <meta property="og:url" content="https://utkarshgupta.qzz.io/" />
   <meta property="og:title" content="Utkarsh Gupta — Developer & AI Architect" />
-  <meta property="og:description" content="Building streaming platforms, AI-powered CLI tools, and real-time systems with React, Next.js, Go, and Python." />
-  <meta property="og:image" content="https://utkarshg.vercel.app/og-image.png" />
+  <meta property="og:description"
+    content="Building streaming platforms, AI-powered CLI tools, and real-time systems with React, Next.js, Go, and Python." />
+  <meta property="og:image" content="https://utkarshgupta.qzz.io/og-image.png" />
   <meta property="og:site_name" content="Utkarsh Gupta Portfolio" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://utkarshg.vercel.app/" />
+  <meta name="twitter:url" content="https://utkarshgupta.qzz.io/" />
   <meta name="twitter:title" content="Utkarsh Gupta — Developer & AI Architect" />
-  <meta name="twitter:description" content="Building streaming platforms, AI-powered CLI tools, and real-time systems with React, Next.js, Go, and Python." />
-  <meta name="twitter:image" content="https://utkarshg.vercel.app/og-image.png" />
+  <meta name="twitter:description"
+    content="Building streaming platforms, AI-powered CLI tools, and real-time systems with React, Next.js, Go, and Python." />
+  <meta name="twitter:image" content="https://utkarshgupta.qzz.io/og-image.png" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/favicon.svg" />
 
-  <!-- Fonts (deduplicated preconnects) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Fonts (asynchronous non-render-blocking load) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@300..800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@300..800&display=swap" rel="stylesheet" />
+  </noscript>
 
   <!-- Web App Manifest -->
   <link rel="manifest" href="/manifest.json" />
 
-  <!-- Noscript Fallback Styles -->
-  <style>
-    .ns-header{max-width:800px;margin:0 auto;padding:2rem;font-family:'Inter',sans-serif;color:#fff;background:#1e1e1e}
-    .ns-main{max-width:800px;margin:0 auto;padding:0 2rem 2rem;font-family:'Inter',sans-serif;color:#ccc;background:#1e1e1e}
-    .ns-main h2{color:#fff;margin-top:1.5rem}
-    .ns-main h3{color:#e2e8f0}
-    .ns-main a{color:#60a5fa}
-  </style>
-
-  <!-- JSON-LD Structured Data -->
+  <!-- JSON-LD Structured Data: Website -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "name": "Utkarsh Gupta Portfolio",
-        "url": "https://utkarshg.vercel.app/",
-        "description": "Full-stack developer and AI architect portfolio showcasing projects in React, Next.js, Python, Go, and real-time systems."
-      },
-      {
-        "@type": "Person",
-        "name": "Utkarsh Gupta",
-        "url": "https://utkarshg.vercel.app/",
-        "jobTitle": "Full-Stack Developer & AI Architect",
-        "description": "Full-stack developer specializing in scalable web platforms, AI-powered tools, and real-time communication systems.",
-        "email": "guptautkarsh231220@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bhopal",
-          "addressCountry": "IN"
-        },
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "LNCT Group of Colleges",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Bhopal",
-            "addressRegion": "Madhya Pradesh",
-            "addressCountry": "IN"
-          }
-        },
-        "knowsAbout": [
-          "React", "Next.js", "JavaScript", "TypeScript", "Python", "Go",
-          "FastAPI", "Node.js", "WebRTC", "WebSockets", "Redis",
-          "PostgreSQL", "Docker", "AI", "Machine Learning", "LLM"
-        ],
-        "sameAs": [
-          "https://github.com/utkarshgupta188",
-          "https://linkedin.com/in/utkarshgupta-dev"
-        ]
-      },
-      {
-        "@type": "ItemList",
-        "name": "Featured Projects",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@type": "SoftwareApplication",
-              "name": "Meowly",
-              "description": "Modern streaming platform for anime and TV shows with Next.js and TypeScript.",
-              "url": "https://meowly.qzz.io",
-              "applicationCategory": "Streaming Platform"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@type": "SoftwareApplication",
-              "name": "GitDude",
-              "description": "AI-powered CLI tool that converts natural language to Git actions with multi-LLM support.",
-              "url": "https://pypi.org/project/gitdude",
-              "applicationCategory": "Developer Tool"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@type": "SoftwareApplication",
-              "name": "CodeFlux",
-              "description": "Intelligent AI routing gateway for autonomous agentic analysis and code management.",
-              "url": "https://github.com/utkarshgupta188/codeflux",
-              "applicationCategory": "AI Gateway"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@type": "SoftwareApplication",
-              "name": "Omiro",
-              "description": "Scalable real-time chat and WebRTC video matching system using Go, Redis, WebSockets, and microservices.",
-              "url": "https://github.com/utkarshgupta188/omiro",
-              "applicationCategory": "Real-time Communication"
-            }
-          }
-        ]
-      },
-      {
-        "@type": "ProfilePage",
-        "name": "Utkarsh Gupta Portfolio",
-        "url": "https://utkarshg.vercel.app/",
-        "mainEntity": {
-          "@type": "Person",
-          "name": "Utkarsh Gupta"
-        },
-        "dateCreated": "2025-01-01",
-        "dateModified": "2026-05-21"
-      },
-      {
-        "@type": "ProfessionalService",
-        "name": "Utkarsh Gupta Freelance Developer & AI Architect",
-        "image": "https://utkarshg.vercel.app/og-image.png",
-        "@id": "https://utkarshg.vercel.app/#service",
-        "url": "https://utkarshg.vercel.app/",
-        "telephone": "",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "LNCT Campus, Kalchuri Nagar, Raisen Road",
-          "addressLocality": "Bhopal",
-          "addressRegion": "Madhya Pradesh",
-          "postalCode": "462022",
-          "addressCountry": "IN"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 23.2215,
-          "longitude": 77.5342
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-          ],
-          "opens": "00:00",
-          "closes": "23:59"
-        }
-      }
+    "@type": "WebSite",
+    "name": "Utkarsh Gupta Portfolio",
+    "url": "https://utkarshgupta.qzz.io/",
+    "description": "Full-stack developer and AI architect portfolio."
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Utkarsh Gupta",
+    "url": "https://utkarshgupta.qzz.io/",
+    "jobTitle": "Full-Stack Developer & AI Architect",
+    "description": "Full-stack developer building scalable web platforms, AI tools, and real-time systems.",
+    "email": "guptautkarsh231220@gmail.com",
+    "knowsAbout": ["React", "Next.js", "JavaScript", "TypeScript", "Python", "Go", "WebRTC", "Redis", "PostgreSQL", "Docker", "AI"],
+    "sameAs": [
+      "https://github.com/utkarshgupta188",
+      "https://linkedin.com/in/utkarshgupta-dev"
     ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: ProfilePage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "Utkarsh Gupta Portfolio",
+    "url": "https://utkarshgupta.qzz.io/",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Utkarsh Gupta",
+      "jobTitle": "Full-Stack Developer & AI Architect"
+    }
   }
   </script>
 </head>
 
 <body>
   <noscript>
-    <div style="max-width:600px;margin:2rem auto;padding:1.5rem;font-family:sans-serif;color:#fff;background:#222;text-align:center;border-radius:8px;">
-      <h1>Utkarsh Gupta — Portfolio</h1>
+    <div
+      style="max-width:600px;margin:2rem auto;padding:1.5rem;font-family:sans-serif;color:#fff;background:#222;text-align:center;border-radius:8px;">
       <p>This interactive portfolio mimicking a VS Code IDE requires JavaScript to function correctly.</p>
       <p>Please enable JavaScript or view the semantic version of the site below.</p>
     </div>
   </noscript>
 
   <!-- Visually Hidden Semantic HTML for Search Engine Crawlers & Screen Readers -->
-  <div style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;">
+  <div
+    style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;">
     <header>
-      <h1>Utkarsh Gupta — Full-Stack Developer & AI Architect</h1>
-      <p>Full-stack developer from Bhopal, India. Specialist in building streaming platforms, AI CLI developer tools, and scalable real-time systems using React, Next.js, Python, Go, and WebRTC.</p>
-      
+      <h1>Utkarsh Gupta — Full-Stack Developer & AI Builder</h1>
+      <p>I am a full-stack developer from Bhopal, India. I build fast websites, smart AI tools, and real-time chat apps. I use tools like React, Next.js, Python, Go, and WebRTC to make sure everything runs smoothly and quickly.</p>
+
       <!-- Internal Links / Navigation Table of Contents -->
       <nav aria-label="Table of Contents">
         <ul>
@@ -237,7 +143,8 @@
     <main>
       <section id="about-me">
         <h2>About Utkarsh Gupta</h2>
-        <p>I'm a B.Tech Computer Science student at LNCT Group of Colleges, Bhopal, focusing on Artificial Intelligence, Machine Learning, and Web Technologies. My technical stack includes JavaScript, TypeScript, Python, Go, C++, React, Next.js, FastAPI, Node.js, WebSockets, WebRTC, PostgreSQL, Redis, and Docker. I design and build production-ready AI platforms and scalable streaming architectures.</p>
+        <p>I study Computer Science at LNCT Group of Colleges in Bhopal, India. I focus on Artificial Intelligence and Web Technologies. I write clean code in JavaScript, TypeScript, Python, Go, and C++. For building apps, I use React, Next.js, FastAPI, and Node.js. I store data using PostgreSQL, MySQL, Redis, and Firebase. I run my code inside Docker containers. I love creating fast and reliable systems that solve real-world problems.</p>
+        <p>As a developer, I want to bridge the gap between complex code and a simple user experience. My projects range from high-speed video streaming platforms to developer tools that use artificial intelligence. I focus on writing clean, readable, and efficient code. I love to learn new web technologies and improve my skills every single day.</p>
       </section>
 
       <section id="featured-projects">
@@ -254,37 +161,38 @@
 
         <article id="project-meowly">
           <h3>Meowly — Next.js Streaming Platform</h3>
-          <p>Modern streaming platform for anime and TV shows built with Next.js and TypeScript, handling concurrent viewers with adaptive bitrate delivery.</p>
+          <p>Meowly is a fast video streaming site for shows and anime. I built it using Next.js and TypeScript. It works smoothly for many users at the same time by adjusting the video quality on the fly. It is highly optimized, loads instantly, and provides a premium viewing experience without any lag or buffering.</p>
           <p>Link: <a href="https://meowly.qzz.io" target="_blank" rel="noopener noreferrer">Visit Meowly Live</a></p>
         </article>
 
         <article id="project-gitdude">
           <h3>GitDude — AI-Powered Git CLI Tool</h3>
-          <p>CLI tool that converts natural language to Git actions with multi-LLM support. Published on PyPI.</p>
+          <p>GitDude is a smart command-line tool. It lets you write normal English sentences to run Git commands. It uses artificial intelligence to understand what you want to do. You can download and install it easily from PyPI. It helps developers speed up their Git workflow by eliminating the need to memorize complex Git commands.</p>
           <p>Link: <a href="https://pypi.org/project/gitdude" target="_blank" rel="noopener noreferrer">Download GitDude on PyPI</a></p>
         </article>
 
         <article id="project-codeflux">
           <h3>CodeFlux — Intelligent AI Gateway</h3>
-          <p>AI routing gateway for autonomous agentic code analysis and management across multiple LLM providers.</p>
+          <p>CodeFlux is a smart routing gateway for AI tasks. It helps manage and analyze code across different large language models. It makes it easy to route queries to the best AI models automatically. This helps developers save time and money by choosing the right model for each specific task.</p>
           <p>Link: <a href="https://github.com/utkarshgupta188/codeflux" target="_blank" rel="noopener noreferrer">CodeFlux Repository on GitHub</a></p>
         </article>
 
         <article id="project-omiro">
           <h3>Omiro — Real-Time WebRTC System</h3>
-          <p>Scalable real-time chat and WebRTC video matching system built with Go, Redis, WebSockets, and microservices architecture.</p>
+          <p>Omiro is a real-time chat and video platform. It connects users instantly using WebRTC and WebSockets. I built the backend with Go and Redis to handle many connections easily and securely. It supports instant text messaging and high-quality peer-to-peer video calls directly inside the web browser.</p>
           <p>Link: <a href="https://github.com/utkarshgupta188/omiro" target="_blank" rel="noopener noreferrer">Omiro Repository on GitHub</a></p>
         </article>
 
         <article id="project-dora">
           <h3>Dora Music — Web Audio Player</h3>
-          <p>Modern web-based music player with Glassmorphism UI and infinite radio streaming capabilities.</p>
+          <p>Dora Music is a beautiful online music player. It has a modern, glassy design and streams unlimited radio stations. It uses web audio APIs to deliver high-quality sound directly in the browser. Users can search for their favorite tracks, build playlists, and listen to streams smoothly.</p>
           <p>Link: <a href="https://dora-music.vercel.app" target="_blank" rel="noopener noreferrer">Listen to Dora Music Live</a></p>
         </article>
       </section>
 
       <section id="technical-skills">
         <h2>Core Programming Skills</h2>
+        <p>I have built strong skills in both frontend and backend development. Here is the list of technologies I use to build robust applications:</p>
         <ul>
           <li><strong>Languages:</strong> JavaScript, TypeScript, Python, Go, C++, PHP, C, R</li>
           <li><strong>Frontend Web:</strong> React, Next.js, Tailwind CSS, Vite, Electron, Tauri</li>
@@ -299,21 +207,31 @@
         <article>
           <h3>Freelance Software Developer (Self-Employed)</h3>
           <p>Duration: 2023 - Present</p>
-          <p>Developed high-performance streaming platforms, architected scalable real-time communication systems, and built AI-powered applications integrating advanced LLM workflows.</p>
+          <p>I work as a freelance developer. I build custom web tools, streaming sites, and real-time chat applications. I have helped clients launch fast, AI-powered products that handle real-time video and data. I focus on writing high-quality code that is easy to maintain and scale over time.</p>
         </article>
         <article>
           <h3>B.Tech in Computer Science &amp; AI Student</h3>
           <p>LNCT Group of Colleges, Bhopal (2024–2028)</p>
-          <p>Focusing on AI, Machine Learning, and Web Development. CGPA: 8.5/10</p>
+          <p>I am pursuing my bachelor degree in Computer Science, focusing on Artificial Intelligence and Machine Learning. I maintain a strong CGPA of 8.5 out of 10. I participate in coding hackathons, build open-source projects, and help teach other students about web development.</p>
         </article>
       </section>
 
       <section id="contact-info">
         <h2>Contact Information</h2>
+        <p>If you want to collaborate on a project or hire me for a role, feel free to reach out using any of these links:</p>
         <ul>
           <li>Email: <a href="mailto:guptautkarsh231220@gmail.com">guptautkarsh231220@gmail.com</a></li>
           <li>GitHub Profile: <a href="https://github.com/utkarshgupta188" target="_blank" rel="noopener noreferrer">github.com/utkarshgupta188</a></li>
           <li>LinkedIn Profile: <a href="https://linkedin.com/in/utkarshgupta-dev" target="_blank" rel="noopener noreferrer">linkedin.com/in/utkarshgupta-dev</a></li>
+        </ul>
+      </section>
+
+      <section id="share-portfolio">
+        <h2>Share this Portfolio</h2>
+        <p>If you like my work, feel free to share my portfolio on your social channels:</p>
+        <ul>
+          <li><a href="https://twitter.com/intent/tweet?url=https://utkarshgupta.qzz.io/&text=Check%20out%20Utkarsh%20Gupta's%20impressive%20developer%20portfolio!" target="_blank" rel="noopener noreferrer">Share on Twitter / X</a></li>
+          <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://utkarshgupta.qzz.io/" target="_blank" rel="noopener noreferrer">Share on LinkedIn</a></li>
         </ul>
       </section>
     </main>

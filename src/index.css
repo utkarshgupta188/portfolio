@@ -37,6 +37,16 @@ body::before {
   position: fixed;
   inset: 0;
   background-image: url("/textures/subtle-grey.png");
+  background-image: -webkit-image-set(
+    url("/textures/subtle-grey.avif") type("image/avif"),
+    url("/textures/subtle-grey.webp") type("image/webp"),
+    url("/textures/subtle-grey.png") type("image/png")
+  );
+  background-image: image-set(
+    url("/textures/subtle-grey.avif") type("image/avif"),
+    url("/textures/subtle-grey.webp") type("image/webp"),
+    url("/textures/subtle-grey.png") type("image/png")
+  );
   opacity: 0.15;
   pointer-events: none;
   z-index: 50;

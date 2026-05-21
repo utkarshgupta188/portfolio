@@ -320,8 +320,21 @@ const VSCodeLayout = () => {
   const [openFiles, setOpenFiles] = useState(['About.jsx', 'Projects.jsx']);
   const [activeSidebar, setActiveSidebar] = useState('explorer');
   const [searchQuery, setSearchQuery] = useState('');
-  const [githubData, setGithubData] = useState(null);
-  const [languagesList, setLanguagesList] = useState([]);
+  const [githubData, setGithubData] = useState({
+    login: 'utkarshgupta188',
+    name: 'Utkarsh Gupta',
+    avatar_url: 'https://avatars.githubusercontent.com/u/187140392?v=4',
+    bio: 'Learning by building.',
+    public_repos: 26,
+    followers: 10,
+    following: 3
+  });
+  const [languagesList, setLanguagesList] = useState([
+    { lang: 'TypeScript', count: 9 },
+    { lang: 'Python', count: 6 },
+    { lang: 'JavaScript', count: 3 },
+    { lang: 'HTML', count: 2 }
+  ]);
   const [fontSize, setFontSize] = useState(14);
   const [theme, setTheme] = useState('dark');
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
@@ -465,13 +478,53 @@ const VSCodeLayout = () => {
   };
 
   React.useEffect(() => {
+    const CACHE_KEY_PROFILE = 'github_profile_cache';
+    const CACHE_KEY_REPOS = 'github_repos_cache';
+    const CACHE_EXPIRY_KEY = 'github_cache_expiry';
+    const ONE_DAY = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+    const now = Date.now();
+    const expiry = localStorage.getItem(CACHE_EXPIRY_KEY);
+    const cachedProfile = localStorage.getItem(CACHE_KEY_PROFILE);
+    const cachedRepos = localStorage.getItem(CACHE_KEY_REPOS);
+
+    if (expiry && cachedProfile && cachedRepos && now < parseInt(expiry)) {
+      try {
+        setGithubData(JSON.parse(cachedProfile));
+        setLanguagesList(JSON.parse(cachedRepos));
+        return;
+      } catch (e) {
+        console.error('Error parsing cached GitHub data:', e);
+      }
+    }
+
+    // Cache missing or expired, fetch fresh data asynchronously in the background
     fetch('https://api.github.com/users/utkarshgupta188')
-      .then(res => res.json())
-      .then(data => setGithubData(data))
-      .catch(err => console.error(err));
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch profile');
+        return res.json();
+      })
+      .then(data => {
+        const profileData = {
+          login: data.login,
+          name: data.name,
+          avatar_url: data.avatar_url,
+          bio: data.bio,
+          public_repos: data.public_repos,
+          followers: data.followers,
+          following: data.following
+        };
+        setGithubData(profileData);
+        localStorage.setItem(CACHE_KEY_PROFILE, JSON.stringify(profileData));
+        localStorage.setItem(CACHE_EXPIRY_KEY, (Date.now() + ONE_DAY).toString());
+      })
+      .catch(err => console.error('GitHub profile fetch error:', err));
 
     fetch('https://api.github.com/users/utkarshgupta188/repos?per_page=100')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch repos');
+        return res.json();
+      })
       .then(repos => {
         if (Array.isArray(repos)) {
           const counts = {};
@@ -483,10 +536,14 @@ const VSCodeLayout = () => {
           const sorted = Object.entries(counts)
             .map(([lang, count]) => ({ lang, count }))
             .sort((a, b) => b.count - a.count);
-          setLanguagesList(sorted.slice(0, 4));
+          const topLanguages = sorted.slice(0, 4);
+          
+          setLanguagesList(topLanguages);
+          localStorage.setItem(CACHE_KEY_REPOS, JSON.stringify(topLanguages));
+          localStorage.setItem(CACHE_EXPIRY_KEY, (Date.now() + ONE_DAY).toString());
         }
       })
-      .catch(err => console.error(err));
+      .catch(err => console.error('GitHub repos fetch error:', err));
   }, []);
 
   const themes = {
@@ -633,15 +690,7 @@ const VSCodeLayout = () => {
 
   return (
     <div className="flex flex-col h-screen font-sans overflow-hidden relative" style={{ backgroundColor: currentTheme.bg, color: currentTheme.text }}>
-      <style>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-        }
-      `}</style>
+      <style>{`.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}`}</style>
       {/* Title Bar */}
       <div className="text-xs py-1.5 px-4 flex justify-between items-center text-white/60 select-none" style={{ backgroundColor: currentTheme.title }}>
         <div className="flex items-center gap-2">

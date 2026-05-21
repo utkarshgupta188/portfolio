@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404: Page Not Found | Utkarsh Gupta Portfolio</title>
+  <meta name="description" content="The page you are looking for does not exist. Return to Utkarsh Gupta's developer portfolio." />
+  <meta name="theme-color" content="#1e1e1e" />
+
+  <!-- Connection & Font Optimizations -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #1e1e1e;
+      color: #cccccc;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .card {
+      background-color: #252526;
+      border: 1px solid #3c3c3c;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      z-index: 10;
+      overflow: hidden;
+    }
+    .title-bar {
+      background-color: #323233;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #2d2d2d;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #969696;
+      user-select: none;
+    }
+    .dots {
+      display: flex;
+      gap: 6px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .dot-red { background-color: #ff5f56; }
+    .dot-yellow { background-color: #ffbd2e; }
+    .dot-green { background-color: #27c93f; }
+    .content {
+      padding: 32px;
+      text-align: center;
+    }
+    .error-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 64px;
+      font-weight: 700;
+      color: #ff5f56;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 12px rgba(255,95,86,0.15);
+    }
+    h1 {
+      font-size: 20px;
+      color: #ffffff;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #aaaaaa;
+      margin-bottom: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #007acc;
+      color: #ffffff;
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+    .btn:hover {
+      background-color: #0062a3;
+    }
+    .btn:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="title-bar">
+      <div class="dots">
+        <div class="dot dot-red"></div>
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-green"></div>
+      </div>
+      <div>diagnostic_tool.log</div>
+      <div style="width: 36px;"></div>
+    </div>
+    <div class="content">
+      <div class="error-code">404</div>
+      <h1>System Error: Path Not Found</h1>
+      <p>The system could not locate the requested directory or file. It may have been relocated or deleted.</p>
+      <a href="/" class="btn">cd ~/portfolio</a>
+    </div>
+  </div>
+</body>
+</html>
