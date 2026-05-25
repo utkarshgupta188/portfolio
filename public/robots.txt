@@ -1,9 +1,9 @@
-# robots.txt for utkarshg.vercel.app
+# robots.txt for utkarshgupta.qzz.io
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://utkarshg.vercel.app/sitemap.xml
+Sitemap: https://utkarshgupta.qzz.io/sitemap.xml
 
 # Disallow development/build artifacts
 Disallow: /assets/*.js.map
