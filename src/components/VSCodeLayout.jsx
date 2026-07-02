@@ -8,6 +8,7 @@ const ResumeMd = () => (
       <div>
         <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1"># Utkarsh Gupta</h1>
         <div className="text-blue-400 text-base sm:text-lg">Full-Stack Developer & AI Architect</div>
+        <div className="text-zinc-400 text-xs sm:text-sm mt-1">Bhopal, Madhya Pradesh, India | guptautkarsh231220@gmail.com</div>
       </div>
       <button 
         onClick={() => window.open('https://utkarshgupta.qzz.io/resume.pdf', '_blank')}
@@ -17,41 +18,115 @@ const ResumeMd = () => (
         Download
       </button>
     </div>
+
+    <h2 className="text-yellow-400 font-bold text-xl mt-6 border-b border-zinc-700 pb-2 mb-4">## Summary</h2>
+    <p className="text-zinc-300 text-sm leading-relaxed mb-6">
+      Full-stack developer with 5+ shipped projects spanning React/TypeScript frontends and Python/FastAPI backends, including an AI-powered CLI tool (GitDude) that improved developer productivity by up to 70%. Seeking a full-stack internship to apply API design, deployment, and automation experience.
+    </p>
     
     <h2 className="text-yellow-400 font-bold text-xl mt-6 border-b border-zinc-700 pb-2 mb-4">## Experience</h2>
-    <div className="mb-4">
+    <div className="mb-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white font-bold gap-1">
         <span>Software Developer (Freelance)</span>
         <span className="text-zinc-400 text-xs sm:text-sm">2023 - Present</span>
       </div>
       <div className="text-pink-400 italic text-sm">Self-Employed</div>
-      <ul className="list-disc ml-6 mt-2 text-zinc-300 text-sm">
-        <li>Developed high-performance streaming platforms like Meowly using Next.js.</li>
+      <ul className="list-disc ml-6 mt-2 text-zinc-300 text-sm space-y-1">
+        <li>Developed high-performance streaming platforms like MeowTV using Next.js.</li>
         <li>Architected scalable real-time communication systems like Omiro using Go, Redis, and WebRTC.</li>
         <li>Built AI-powered applications such as GitDude and MindMate integrating advanced LLM workflows.</li>
       </ul>
     </div>
 
-    <h2 className="text-yellow-400 font-bold text-xl mt-8 border-b border-zinc-700 pb-2 mb-4">## Education</h2>
-    <div className="mb-4">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white font-bold gap-1">
-        <span>B.Tech in Computer Science</span>
-        <span className="text-zinc-400 text-xs sm:text-sm">2024 - 2028</span>
+    <h2 className="text-yellow-400 font-bold text-xl mt-8 border-b border-zinc-700 pb-2 mb-4">## Projects</h2>
+    <div className="space-y-4 mb-6">
+      <div>
+        <div className="flex justify-between items-baseline">
+          <span className="text-white font-bold">GitDude</span>
+          <span className="text-zinc-400 text-xs">Python, Multi-LLM, CLI</span>
+        </div>
+        <ul className="list-disc ml-6 mt-1 text-zinc-300 text-sm">
+          <li>Built an AI-powered CLI tool that converts natural language into Git commands with support for multiple LLM providers.</li>
+          <li>Implemented automated testing around command parsing and execution, increasing commit-workflow productivity by up to 70%.</li>
+        </ul>
       </div>
-      <div className="text-pink-400 italic text-sm">LNCT Group of Colleges, Bhopal</div>
-      <div className="text-zinc-300 mt-1 text-sm">Focusing on Artificial Intelligence, Machine Learning, and Web Technologies.</div>
+      <div>
+        <div className="flex justify-between items-baseline">
+          <span className="text-white font-bold">CodeFlux</span>
+          <span className="text-zinc-400 text-xs">Python, FastAPI, AI</span>
+        </div>
+        <ul className="list-disc ml-6 mt-1 text-zinc-300 text-sm">
+          <li>Built an AI-based code-routing gateway that performs automated code analysis and routes requests based on code version.</li>
+          <li>Optimized the analysis pipeline to cut code analysis time by 30%, making it practical for faster development cycles.</li>
+        </ul>
+      </div>
+      <div>
+        <div className="flex justify-between items-baseline">
+          <span className="text-white font-bold">MeowTV</span>
+          <span className="text-zinc-400 text-xs">Next.js, TypeScript</span>
+        </div>
+        <ul className="list-disc ml-6 mt-1 text-zinc-300 text-sm">
+          <li>Built a streaming platform delivering anime, cartoons, and TV shows with a responsive Next.js/TypeScript frontend.</li>
+          <li>Implemented lazy-loaded media playback and client-side routing to keep page loads fast and navigation smooth.</li>
+        </ul>
+      </div>
+      <div>
+        <div className="flex justify-between items-baseline">
+          <span className="text-white font-bold">Dora Music</span>
+          <span className="text-zinc-400 text-xs">React, Web Audio</span>
+        </div>
+        <ul className="list-disc ml-6 mt-1 text-zinc-300 text-sm">
+          <li>Designed a web-based music player with a Glassmorphism UI, giving it a distinct, modern look.</li>
+          <li>Built an infinite radio feature with high-quality audio streaming, allowing continuous playback without manual track selection.</li>
+        </ul>
+      </div>
+      <div>
+        <div className="flex justify-between items-baseline">
+          <span className="text-white font-bold">Attendance Tracking Application</span>
+          <span className="text-zinc-400 text-xs">Python, BeautifulSoup, Vercel</span>
+        </div>
+        <ul className="list-disc ml-6 mt-1 text-zinc-300 text-sm">
+          <li>Built a custom API using BeautifulSoup to scrape and structure subject-wise attendance data from the college portal.</li>
+          <li>Hosted the service on Vercel for on-demand access, removing the need to manually check the portal.</li>
+        </ul>
+      </div>
     </div>
 
     <h2 className="text-yellow-400 font-bold text-xl mt-8 border-b border-zinc-700 pb-2 mb-4">## Core Skills</h2>
-    <div className="text-zinc-300 leading-relaxed">
-      <span className="text-white font-bold">Languages:</span> JavaScript, TypeScript, Python, Go, C++, PHP <br/>
-      <span className="text-white font-bold">Frontend & Cross-Platform:</span> React, Next.js, Tailwind CSS, Tauri, Electron <br/>
-      <span className="text-white font-bold">Backend & AI:</span> Node.js, FastAPI, WebSockets, WebRTC, Local LLMs <br/>
-      <span className="text-white font-bold">Databases:</span> PostgreSQL, MySQL, Redis, Firebase <br/>
-      <span className="text-white font-bold">Tools & Architecture:</span> Git, Docker, Microservices, Nginx, Linux
+    <div className="text-zinc-300 leading-relaxed mb-6 text-sm">
+      <span className="text-white font-bold">Languages:</span> Python, JavaScript, TypeScript, C++, C, PHP <br/>
+      <span className="text-white font-bold">Frontend:</span> React, Vite, HTML/CSS, Next.js <br/>
+      <span className="text-white font-bold">Backend & Databases:</span> FastAPI, Flask, Node.js, MySQL, PostgreSQL, Redis, Firebase, REST API <br/>
+      <span className="text-white font-bold">Tools & Cloud:</span> Git, Docker, Nginx, Postman, Vercel, Netlify, Render, Burpsuite <br/>
+      <span className="text-white font-bold">AI/Data:</span> LLM integration, multi-LLM tooling, data analysis, web scraping (BeautifulSoup), RAG
     </div>
 
+    <h2 className="text-yellow-400 font-bold text-xl mt-8 border-b border-zinc-700 pb-2 mb-4">## Certifications</h2>
+    <ul className="list-disc ml-6 text-zinc-300 text-sm space-y-1 mb-6">
+      <li>Oracle Cloud Infrastructure 2025 Certified Generative AI Professional (Oracle)</li>
+      <li>Postman API Fundamentals Student Expert</li>
+      <li>Python Development & Data Science</li>
+      <li>PHP for Beginners: PHP/MySQL/PDO</li>
+      <li>Introduction to IoT</li>
+    </ul>
 
+    <h2 className="text-yellow-400 font-bold text-xl mt-8 border-b border-zinc-700 pb-2 mb-4">## Education</h2>
+    <div className="space-y-4 mb-4">
+      <div>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white font-bold gap-1">
+          <span>Bachelor of Technology (B.Tech), Computer Science</span>
+          <span className="text-zinc-400 text-xs sm:text-sm">Expected 2028</span>
+        </div>
+        <div className="text-pink-400 italic text-sm">LNCT Group of Colleges | CGPA: 8.5/10</div>
+      </div>
+      <div>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white font-bold gap-1">
+          <span>Class 10 & Class 12 (PCM)</span>
+          <span className="text-zinc-400 text-xs sm:text-sm">Graduated Mar 2023</span>
+        </div>
+        <div className="text-pink-400 italic text-sm">DAV Schools Network | Percentage: 80%</div>
+      </div>
+    </div>
   </div>
 );
 
@@ -179,7 +254,7 @@ const AboutJsx = () => (
     <div className="ml-8 text-pink-400">],</div>
     <div className="ml-8 text-pink-400">currentFocus: <span className="text-amber-300">`</span></div>
     <div className="ml-12 text-amber-300">Engineering production-ready AI platforms (like GitDude and CodeFlux) </div>
-    <div className="ml-12 text-amber-300">and robust streaming architectures (like Meowly). I love turning</div>
+    <div className="ml-12 text-amber-300">and robust streaming architectures (like MeowTV). I love turning</div>
     <div className="ml-12 text-amber-300">complex backend logic into seamless, intuitive human experiences.</div>
     <div className="ml-8 text-amber-300">`</div>
     <div className="ml-4 text-pink-400">{`}`};</div>
@@ -195,38 +270,38 @@ const ProjectsJson = () => (
   <div className="p-6 font-mono text-white/80">
     <div className="text-yellow-400">[</div>
     <div className="ml-4 text-yellow-400">{`{`}</div>
-    <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"Meowly"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"Streaming Platform"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"Modern streaming platform for anime and TV shows with Next.js and TypeScript."</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/meowly"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"live"</span>: <span className="text-amber-300">"https://meowly.qzz.io"</span></div>
-    <div className="ml-4 text-yellow-400">{`}`},</div>
-    <div className="ml-4 text-yellow-400">{`{`}</div>
     <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"GitDude"</span>,</div>
     <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"AI CLI Tool"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"AI-powered CLI tool that converts natural language to Git actions with multi-LLM support."</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"AI-powered CLI tool that converts natural language to Git actions with support for multiple LLM providers."</span>,</div>
     <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/gitdude"</span>,</div>
     <div className="ml-8"><span className="text-blue-400">"live"</span>: <span className="text-amber-300">"https://pypi.org/project/gitdude"</span></div>
     <div className="ml-4 text-yellow-400">{`}`},</div>
     <div className="ml-4 text-yellow-400">{`{`}</div>
     <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"CodeFlux"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"AI Gateway"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"Intelligent AI routing gateway for autonomous agentic analysis and code management."</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"AI Code Analysis"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"AI-based code-routing gateway performing automated analysis and routing requests based on version."</span>,</div>
     <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/codeflux"</span></div>
     <div className="ml-4 text-yellow-400">{`}`},</div>
     <div className="ml-4 text-yellow-400">{`{`}</div>
-    <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"Meow CLI"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"Terminal Tool"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"The purr-fect streamer from your terminal, engineered for fast content delivery."</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/meow-cli"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"live"</span>: <span className="text-amber-300">"https://pypi.org/project/meowtv"</span></div>
+    <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"MeowTV"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"Streaming Platform"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"Streaming platform delivering anime, cartoons, and TV shows with a responsive Next.js/TypeScript frontend."</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/meowtv"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"live"</span>: <span className="text-amber-300">"https://meowtv.qzz.io"</span></div>
     <div className="ml-4 text-yellow-400">{`}`},</div>
     <div className="ml-4 text-yellow-400">{`{`}</div>
     <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"Dora Music"</span>,</div>
     <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"Audio Streaming"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"Modern web-based music player with Glassmorphism UI and infinite radio streaming."</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"Web-based music player with a Glassmorphism UI and an infinite radio feature with high-quality streaming."</span>,</div>
     <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/dora-music"</span>,</div>
     <div className="ml-8"><span className="text-blue-400">"live"</span>: <span className="text-amber-300">"https://dora-music.vercel.app"</span></div>
+    <div className="ml-4 text-yellow-400">{`}`},</div>
+    <div className="ml-4 text-yellow-400">{`{`}</div>
+    <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"Attendance Tracker"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"Data Scraper"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"Custom API using BeautifulSoup to scrape and structure subject-wise attendance data from the college portal."</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/lnctu"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"live"</span>: <span className="text-amber-300">"https://lnctu.vercel.app"</span></div>
     <div className="ml-4 text-yellow-400">{`}`},</div>
     <div className="ml-4 text-yellow-400">{`{`}</div>
     <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"Omiro"</span>,</div>
@@ -237,28 +312,8 @@ const ProjectsJson = () => (
     <div className="ml-4 text-yellow-400">{`{`}</div>
     <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"MindMate"</span>,</div>
     <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"AI Web App"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"AI-powered mental wellness companion web application."</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"AI-powered mental wellness companion web application integrating advanced LLM workflows."</span>,</div>
     <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/mindmate"</span></div>
-    <div className="ml-4 text-yellow-400">{`}`},</div>
-    <div className="ml-4 text-yellow-400">{`{`}</div>
-    <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"tgupload"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"Cloud Backend"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"Personal cloud storing files in Telegram via a bot with a FastAPI backend."</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/tgupload"</span></div>
-    <div className="ml-4 text-yellow-400">{`}`},</div>
-    <div className="ml-4 text-yellow-400">{`{`}</div>
-    <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"Attendance Tracker"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"Data Scraper"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"Custom API using BeautifulSoup to scrape and provide subject-wise attendance data."</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/lnctu"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"live"</span>: <span className="text-amber-300">"https://lnctu.vercel.app"</span></div>
-    <div className="ml-4 text-yellow-400">{`}`},</div>
-    <div className="ml-4 text-yellow-400">{`{`}</div>
-    <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"MeowTV"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"Streaming Platform"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"Classic streaming platform for live TV and movies."</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/meowtv"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"live"</span>: <span className="text-amber-300">"https://meowtv.qzz.io"</span></div>
     <div className="ml-4 text-yellow-400">{`}`}</div>
     <div className="text-yellow-400">]</div>
   </div>
@@ -272,7 +327,7 @@ const ExperienceJs = () => (
     <div className="ml-8 text-pink-400">role: <span className="text-amber-300">'Software Developer (Freelance)'</span>,</div>
     <div className="ml-8 text-pink-400">company: <span className="text-amber-300">'Self-Employed'</span>,</div>
     <div className="ml-8 text-pink-400">highlights: [</div>
-    <div className="ml-12 text-amber-300">'Developed high-performance streaming platforms like Meowly using Next.js.',</div>
+    <div className="ml-12 text-amber-300">'Developed high-performance streaming platforms like MeowTV using Next.js.',</div>
     <div className="ml-12 text-amber-300">'Architected scalable real-time communication systems like Omiro using Go, Redis, and WebRTC.',</div>
     <div className="ml-12 text-amber-300">'Built AI-powered applications such as GitDude and MindMate integrating advanced LLM workflows.'</div>
     <div className="ml-8 text-pink-400">]</div>
@@ -283,13 +338,20 @@ const ExperienceJs = () => (
 
 const EducationJson = () => (
   <div className="p-6 font-mono text-white/80">
-    <div className="text-yellow-400">{`{`}</div>
-    <div className="ml-4"><span className="text-blue-400">"degree"</span>: <span className="text-amber-300">"B.Tech in Computer Science & AI"</span>,</div>
-    <div className="ml-4"><span className="text-blue-400">"institution"</span>: <span className="text-amber-300">"LNCT Group of Colleges, Bhopal"</span>,</div>
-    <div className="ml-4"><span className="text-blue-400">"duration"</span>: <span className="text-amber-300">"2024 - 2028"</span>,</div>
-    <div className="ml-4"><span className="text-blue-400">"gpa"</span>: <span className="text-amber-300">"8.5/10"</span>,</div>
-    <div className="ml-4"><span className="text-blue-400">"focus"</span>: <span className="text-amber-300">"Artificial Intelligence, Machine Learning, and Web Technologies"</span></div>
-    <div className="text-yellow-400">{`}`}</div>
+    <div className="text-yellow-400">[</div>
+    <div className="ml-4 text-yellow-400">{`{`}</div>
+    <div className="ml-8"><span className="text-blue-400">"degree"</span>: <span className="text-amber-300">"Bachelor of Technology (B.Tech), Computer Science"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"institution"</span>: <span className="text-amber-300">"LNCT Group of Colleges"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"expected_graduation"</span>: <span className="text-amber-300">"2028"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"cgpa"</span>: <span className="text-amber-300">"8.5/10"</span></div>
+    <div className="ml-4 text-yellow-400">{`}`},</div>
+    <div className="ml-4 text-yellow-400">{`{`}</div>
+    <div className="ml-8"><span className="text-blue-400">"education"</span>: <span className="text-amber-300">"Class 10 & Class 12 (PCM)"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"institution"</span>: <span className="text-amber-300">"DAV Schools Network"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"graduation"</span>: <span className="text-amber-300">"Mar 2023"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"percentage"</span>: <span className="text-amber-300">"80%"</span></div>
+    <div className="ml-4 text-yellow-400">{`}`}</div>
+    <div className="text-yellow-400">]</div>
   </div>
 );
 
