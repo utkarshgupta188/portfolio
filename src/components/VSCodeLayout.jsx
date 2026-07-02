@@ -166,71 +166,59 @@ const HoverSkill = ({ name, description }) => {
 
 const SkillsCss = () => (
   <div className="p-6 font-mono text-white/80">
-    <div className="text-purple-400">.programming</div> {`{`}
-    <div className="ml-4 text-pink-400">languages: <span className="text-white">
+    <div className="text-purple-400">.languages</div> {`{`}
+    <div className="ml-4 text-pink-400">skills: <span className="text-white">
       <HoverSkill name="Python" description="Used heavily in AI platforms like GitDude and CodeFlux." />,{' '}
       <HoverSkill name="JavaScript" description="Deep knowledge of ES6+, DOM manipulation, and asynchronous patterns." />,{' '}
       <HoverSkill name="TypeScript" description="Strict typing for robust, enterprise-grade Next.js applications." />,{' '}
-      <HoverSkill name="Go" description="Building high-performance, concurrent backend services like Omiro." />,{' '}
-      <HoverSkill name="PHP" description="Legacy maintenance and server-side logic." />,{' '}
       <HoverSkill name="C++" description="Strong fundamentals in OOP and data structures." />,{' '}
       <HoverSkill name="C" description="Low-level memory management and system programming." />,{' '}
-      <HoverSkill name="R" description="Statistical computing and data visualization." />
+      <HoverSkill name="PHP" description="Server-side logic and database connectivity." />
     </span>;</div>
     {`}`}
     <br />
-    <div className="text-purple-400">.data-science-ai</div> {`{`}
-    <div className="ml-4 text-pink-400">skills: <span className="text-white">
-      <HoverSkill name="Large Language Models" description="Expertise in integrating local and API-driven LLMs for autonomous agents." />,{' '}
-      <HoverSkill name="Data Analysis" description="Web scraping (Attendance Tracker) and structured data pipelines." />,{' '}
-      <HoverSkill name="PyTorch" description="Building and fine-tuning neural networks." />,{' '}
-      <HoverSkill name="Scikit-learn" description="Implementing classical machine learning algorithms." />,{' '}
-      <HoverSkill name="NumPy" description="High-performance numerical computations." />,{' '}
-      <HoverSkill name="Pandas" description="Data manipulation and analysis." />,{' '}
-      <HoverSkill name="Matplotlib" description="Creating static, animated, and interactive visualizations." />
+    <div className="text-purple-400">.frontend</div> {`{`}
+    <div className="ml-4 text-pink-400">frameworks: <span className="text-white">
+      <HoverSkill name="React" description="Building dynamic, highly interactive component-based UIs." />,{' '}
+      <HoverSkill name="Vite" description="Next-generation frontend tooling for blazing fast builds." />,{' '}
+      <HoverSkill name="HTML/CSS" description="Semantic page structures and responsive layouts." />,{' '}
+      <HoverSkill name="Next.js" description="Server-side rendering and full-stack React architecture." />
     </span>;</div>
     {`}`}
     <br />
-    <div className="text-purple-400">.backend-db</div> {`{`}
+    <div className="text-purple-400">.backend-databases</div> {`{`}
     <div className="ml-4 text-pink-400">skills: <span className="text-white">
       <HoverSkill name="FastAPI" description="Building lightning-fast Python backend APIs." />,{' '}
-      <HoverSkill name="Node.js" description="Scalable event-driven JavaScript backend services." />,{' '}
       <HoverSkill name="Flask" description="Lightweight Python web frameworks." />,{' '}
+      <HoverSkill name="Node.js" description="Scalable event-driven JavaScript backend services." />,{' '}
       <HoverSkill name="MySQL" description="Relational database design and complex queries." />,{' '}
       <HoverSkill name="PostgreSQL" description="Advanced open-source relational databases." />,{' '}
       <HoverSkill name="Redis" description="In-memory data structures for high-speed caching." />,{' '}
-      <HoverSkill name="Firebase" description="Realtime NoSQL databases and authentication." />
+      <HoverSkill name="Firebase" description="Realtime NoSQL databases and authentication." />,{' '}
+      <HoverSkill name="REST API" description="Designing clean, stateless, and RESTful endpoints." />
     </span>;</div>
     {`}`}
     <br />
-    <div className="text-purple-400">.frontend-tools</div> {`{`}
-    <div className="ml-4 text-pink-400">skills: <span className="text-white">
-      <HoverSkill name="React" description="Building dynamic, highly interactive component-based UIs." />,{' '}
-      <HoverSkill name="Next.js" description="Server-side rendering and full-stack React architecture." />,{' '}
-      <HoverSkill name="Tailwind CSS" description="Utility-first styling for rapid, beautiful UI development." />,{' '}
-      <HoverSkill name="Vite" description="Next-generation frontend tooling for blazing fast builds." />,{' '}
-      <HoverSkill name="Git" description="Version control, branching strategies, and CI/CD pipelines." />,{' '}
+    <div className="text-purple-400">.tools-cloud</div> {`{`}
+    <div className="ml-4 text-pink-400">deployment: <span className="text-white">
+      <HoverSkill name="Git" description="Version control, branching strategies, and collaborative development." />,{' '}
       <HoverSkill name="Docker" description="Containerizing applications for consistent deployment." />,{' '}
-      <HoverSkill name="Selenium" description="Automated browser testing and advanced web scraping." />,{' '}
+      <HoverSkill name="Nginx" description="Reverse proxying, load balancing, and serving static assets." />,{' '}
       <HoverSkill name="Postman" description="API design, testing, and documentation." />,{' '}
-      <HoverSkill name="Nginx" description="Reverse proxying and serving static assets." />
+      <HoverSkill name="Vercel" description="Frontend hosting and serverless functions deployment." />,{' '}
+      <HoverSkill name="Netlify" description="Fast hosting and automation for modern web projects." />,{' '}
+      <HoverSkill name="Render" description="Cloud hosting for web services, databases, and static sites." />,{' '}
+      <HoverSkill name="Burpsuite" description="Security testing and web application security auditing." />
     </span>;</div>
     {`}`}
     <br />
-    <div className="text-purple-400">.cross-platform</div> {`{`}
-    <div className="ml-4 text-pink-400">frameworks: <span className="text-white">
-      <HoverSkill name="Electron" description="Building heavy, native desktop applications using web technologies." />,{' '}
-      <HoverSkill name="Tauri" description="Creating highly optimized, blazing-fast desktop apps with Rust backends." />,{' '}
-      <HoverSkill name="Capacitor" description="Compiling web apps into native iOS and Android mobile apps." />
-    </span>;</div>
-    {`}`}
-    <br />
-    <div className="text-purple-400">.realtime-systems</div> {`{`}
-    <div className="ml-4 text-pink-400">architecture: <span className="text-white">
-      <HoverSkill name="WebSockets" description="Full-duplex bidirectional communication for real-time chat." />,{' '}
-      <HoverSkill name="WebRTC" description="Peer-to-peer video, audio, and data streaming." />,{' '}
-      <HoverSkill name="Microservices" description="Designing distributed, scalable backend architectures." />,{' '}
-      <HoverSkill name="Pub/Sub" description="Message routing and event-driven architectures." />
+    <div className="text-purple-400">.ai-data</div> {`{`}
+    <div className="ml-4 text-pink-400">technologies: <span className="text-white">
+      <HoverSkill name="LLM integration" description="Connecting application logic with large language models." />,{' '}
+      <HoverSkill name="multi-LLM tooling" description="Developing software compatible across multiple AI providers." />,{' '}
+      <HoverSkill name="data analysis" description="Processing, cleaning, and extracting insights from datasets." />,{' '}
+      <HoverSkill name="web scraping" description="Harvesting data from web pages using BeautifulSoup." />,{' '}
+      <HoverSkill name="RAG" description="Retrieval-Augmented Generation for grounding AI responses." />
     </span>;</div>
     {`}`}
   </div>
