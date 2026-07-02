@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Folder, Search, GitBranch, File, X, ChevronRight, ChevronDown, Settings, Bell, User, Cpu, Mail, Briefcase, FileCode, Blocks, Play, Download, Plus, Undo, RotateCcw, Check, MoreHorizontal } from 'lucide-react';
+import { Folder, Search, GitBranch, File, X, ChevronRight, ChevronDown, Settings, Bell, User, Cpu, Mail, Briefcase, FileCode, Blocks, Play, Download, Plus, Undo, RotateCcw, Check, MoreHorizontal, GraduationCap } from 'lucide-react';
 
 const ResumeMd = () => (
   <div className="p-6 font-mono text-white/80 max-w-4xl mx-auto">
@@ -268,12 +268,28 @@ const ExperienceJs = () => (
   <div className="p-6 font-mono text-white/80">
     <div className="text-pink-400">export const <span className="text-blue-400">getExperience</span> = () =&gt; [</div>
     <div className="ml-4 text-yellow-400">{`{`}</div>
-    <div className="ml-8 text-pink-400">period: <span className="text-amber-300">'2024 – 2028'</span>,</div>
-    <div className="ml-8 text-pink-400">title: <span className="text-amber-300">'B.Tech Computer Science'</span>,</div>
-    <div className="ml-8 text-pink-400">org: <span className="text-amber-300">'LNCT Group of Colleges'</span>,</div>
-    <div className="ml-8 text-pink-400">description: <span className="text-amber-300">'Focusing on AI, Machine Learning, and Web Development. Maintaining a strong 8.5 CGPA while leading technical projects.'</span></div>
+    <div className="ml-8 text-pink-400">period: <span className="text-amber-300">'2023 – Present'</span>,</div>
+    <div className="ml-8 text-pink-400">role: <span className="text-amber-300">'Software Developer (Freelance)'</span>,</div>
+    <div className="ml-8 text-pink-400">company: <span className="text-amber-300">'Self-Employed'</span>,</div>
+    <div className="ml-8 text-pink-400">highlights: [</div>
+    <div className="ml-12 text-amber-300">'Developed high-performance streaming platforms like Meowly using Next.js.',</div>
+    <div className="ml-12 text-amber-300">'Architected scalable real-time communication systems like Omiro using Go, Redis, and WebRTC.',</div>
+    <div className="ml-12 text-amber-300">'Built AI-powered applications such as GitDude and MindMate integrating advanced LLM workflows.'</div>
+    <div className="ml-8 text-pink-400">]</div>
     <div className="ml-4 text-yellow-400">{`}`}</div>
     <div className="text-pink-400">];</div>
+  </div>
+);
+
+const EducationJson = () => (
+  <div className="p-6 font-mono text-white/80">
+    <div className="text-yellow-400">{`{`}</div>
+    <div className="ml-4"><span className="text-blue-400">"degree"</span>: <span className="text-amber-300">"B.Tech in Computer Science & AI"</span>,</div>
+    <div className="ml-4"><span className="text-blue-400">"institution"</span>: <span className="text-amber-300">"LNCT Group of Colleges, Bhopal"</span>,</div>
+    <div className="ml-4"><span className="text-blue-400">"duration"</span>: <span className="text-amber-300">"2024 - 2028"</span>,</div>
+    <div className="ml-4"><span className="text-blue-400">"gpa"</span>: <span className="text-amber-300">"8.5/10"</span>,</div>
+    <div className="ml-4"><span className="text-blue-400">"focus"</span>: <span className="text-amber-300">"Artificial Intelligence, Machine Learning, and Web Technologies"</span></div>
+    <div className="text-yellow-400">{`}`}</div>
   </div>
 );
 
@@ -608,7 +624,13 @@ const VSCodeLayout = () => {
       name: 'Experience.js',
       icon: <Briefcase size={14} className="text-yellow-400" />,
       component: <ExperienceJs />,
-      content: "B.Tech Computer Science, LNCT Group of Colleges, 2024 - 2028"
+      content: "Software Developer (Freelance), Self-Employed, 2023 - Present, React, Next.js, Go, WebRTC"
+    },
+    {
+      name: 'Education.json',
+      icon: <GraduationCap size={14} className="text-blue-400" />,
+      component: <EducationJson />,
+      content: "B.Tech in Computer Science & AI, LNCT Group of Colleges, Bhopal, 2024 - 2028, GPA 8.5"
     },
     {
       name: 'Skills.css',
