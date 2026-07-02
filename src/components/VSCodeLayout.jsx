@@ -10,7 +10,7 @@ const ResumeMd = () => (
         <div className="text-blue-400 text-base sm:text-lg">Full-Stack Developer & AI Architect</div>
       </div>
       <button 
-        onClick={() => window.open('https://utkarshgupta.rf.gd/resume.pdf', '_blank')}
+        onClick={() => window.open('https://utkarshgupta.qzz.io/resume.pdf', '_blank')}
         className="inline-flex items-center gap-2 bg-[#007acc] hover:bg-[#005f9e] text-white px-4 py-2 rounded transition-colors font-bold uppercase text-xs border-none cursor-pointer flex-shrink-0 self-start sm:self-center"
       >
         <Download size={14} />
