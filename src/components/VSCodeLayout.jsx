@@ -95,12 +95,33 @@ const ResumeMd = () => (
       </div>
       <div>
         <div className="flex justify-between items-baseline">
-          <span className="text-white font-bold">Attendance Tracking Application</span>
-          <span className="text-zinc-400 text-xs">Python, BeautifulSoup, Vercel</span>
+          <span className="text-white font-bold">MindMate</span>
+          <span className="text-zinc-400 text-xs">TypeScript, React, Next.js, Node.js, PostgreSQL</span>
         </div>
-        <ul className="list-disc ml-6 mt-1 text-zinc-300 text-sm">
-          <li>Built a custom API using BeautifulSoup to scrape and structure subject-wise attendance data from the college portal.</li>
-          <li>Hosted the service on Vercel for on-demand access, removing the need to manually check the portal.</li>
+        <ul className="list-disc ml-6 mt-1 text-zinc-300 text-sm space-y-1">
+          <li>An AI-powered mental wellness companion featuring mood/stress tracking, personalized recommendations, and real-time analytics.</li>
+          <li>Integrated AI-driven chatbots, mood visualization charts, and interactive wellness widgets like breathing games and journaling tools.</li>
+          <li>Leveraged Sentiment Analysis and YOLO-based emotion detection to provide tailored user experiences.</li>
+        </ul>
+      </div>
+      <div>
+        <div className="flex justify-between items-baseline">
+          <span className="text-white font-bold">P2P File Sharing Application (ShareLink)</span>
+          <span className="text-zinc-400 text-xs">Node.js, TypeScript, Socket.io, Express</span>
+        </div>
+        <ul className="list-disc ml-6 mt-1 text-zinc-300 text-sm space-y-1">
+          <li>Built a secure peer-to-peer file sharing application with OTP-based authentication and real-time peer discovery.</li>
+          <li>Implemented secure file upload/download functionality and integrated with Render for deployment.</li>
+        </ul>
+      </div>
+      <div>
+        <div className="flex justify-between items-baseline">
+          <span className="text-white font-bold">Prompt Enhancer</span>
+          <span className="text-zinc-400 text-xs">Python, PyQt5, OpenAI API</span>
+        </div>
+        <ul className="list-disc ml-6 mt-1 text-zinc-300 text-sm space-y-1">
+          <li>Developed a global AI-powered utility for Windows that enhances text instantly across any application using customizable hotkeys.</li>
+          <li>Integrated system tray functionality and configurable enhancement modes to streamline user workflows.</li>
         </ul>
       </div>
     </div>
@@ -311,9 +332,21 @@ const ProjectsJson = () => (
     <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/omiro"</span></div>
     <div className="ml-4 text-yellow-400">{`}`},</div>
     <div className="ml-4 text-yellow-400">{`{`}</div>
+    <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"ShareLink (P2P File Sharing)"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"Networking / P2P"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"Secure P2P file sharing app with OTP-based auth, real-time peer discovery, and Render deployment."</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/sharelink"</span></div>
+    <div className="ml-4 text-yellow-400">{`}`},</div>
+    <div className="ml-4 text-yellow-400">{`{`}</div>
+    <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"Prompt Enhancer"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"AI Desktop Utility"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"Global AI Windows utility enhancing text instantly across any app using customizable hotkeys and system tray."</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/prompt-enhancer"</span></div>
+    <div className="ml-4 text-yellow-400">{`}`},</div>
+    <div className="ml-4 text-yellow-400">{`{`}</div>
     <div className="ml-8"><span className="text-blue-400">"title"</span>: <span className="text-amber-300">"MindMate"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"AI Web App"</span>,</div>
-    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"AI-powered mental wellness companion web application integrating advanced LLM workflows."</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"category"</span>: <span className="text-amber-300">"AI Mental Wellness Companion"</span>,</div>
+    <div className="ml-8"><span className="text-blue-400">"description"</span>: <span className="text-amber-300">"AI mental wellness platform featuring mood tracking, sentiment analysis, YOLO emotion detection, and chatbots."</span>,</div>
     <div className="ml-8"><span className="text-blue-400">"repo"</span>: <span className="text-amber-300">"https://github.com/utkarshgupta188/mindmate"</span></div>
     <div className="ml-4 text-yellow-400">{`}`}</div>
     <div className="text-yellow-400">]</div>
