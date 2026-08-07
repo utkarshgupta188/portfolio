@@ -410,21 +410,9 @@ const VSCodeLayout = () => {
   const [openFiles, setOpenFiles] = useState(['About.jsx', 'Projects.jsx']);
   const [activeSidebar, setActiveSidebar] = useState('explorer');
   const [searchQuery, setSearchQuery] = useState('');
-  const [githubData, setGithubData] = useState({
-    login: 'utkarshgupta188',
-    name: 'Utkarsh Gupta',
-    avatar_url: 'https://avatars.githubusercontent.com/u/187140392?v=4',
-    bio: 'Learning by building.',
-    public_repos: 26,
-    followers: 10,
-    following: 3
-  });
-  const [languagesList, setLanguagesList] = useState([
-    { lang: 'TypeScript', count: 9 },
-    { lang: 'Python', count: 6 },
-    { lang: 'JavaScript', count: 3 },
-    { lang: 'HTML', count: 2 }
-  ]);
+  const [githubData, setGithubData] = useState(null);
+  const [totalStars, setTotalStars] = useState(0);
+  const [languagesList, setLanguagesList] = useState([]);
   const [fontSize, setFontSize] = useState(14);
   const [theme, setTheme] = useState('dark');
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
@@ -568,34 +556,14 @@ const VSCodeLayout = () => {
   };
 
   React.useEffect(() => {
-    const CACHE_KEY_PROFILE = 'github_profile_cache';
-    const CACHE_KEY_REPOS = 'github_repos_cache';
-    const CACHE_EXPIRY_KEY = 'github_cache_expiry';
-    const ONE_DAY = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-
-    const now = Date.now();
-    const expiry = localStorage.getItem(CACHE_EXPIRY_KEY);
-    const cachedProfile = localStorage.getItem(CACHE_KEY_PROFILE);
-    const cachedRepos = localStorage.getItem(CACHE_KEY_REPOS);
-
-    if (expiry && cachedProfile && cachedRepos && now < parseInt(expiry)) {
-      try {
-        setGithubData(JSON.parse(cachedProfile));
-        setLanguagesList(JSON.parse(cachedRepos));
-        return;
-      } catch (e) {
-        console.error('Error parsing cached GitHub data:', e);
-      }
-    }
-
-    // Cache missing or expired, fetch fresh data asynchronously in the background
+    // Direct real-time fetch from GitHub API (no caching or hardcoded values)
     fetch('https://api.github.com/users/utkarshgupta188')
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch profile');
         return res.json();
       })
       .then(data => {
-        const profileData = {
+        setGithubData({
           login: data.login,
           name: data.name,
           avatar_url: data.avatar_url,
@@ -603,10 +571,7 @@ const VSCodeLayout = () => {
           public_repos: data.public_repos,
           followers: data.followers,
           following: data.following
-        };
-        setGithubData(profileData);
-        localStorage.setItem(CACHE_KEY_PROFILE, JSON.stringify(profileData));
-        localStorage.setItem(CACHE_EXPIRY_KEY, (Date.now() + ONE_DAY).toString());
+        });
       })
       .catch(err => console.error('GitHub profile fetch error:', err));
 
@@ -618,7 +583,11 @@ const VSCodeLayout = () => {
       .then(repos => {
         if (Array.isArray(repos)) {
           const counts = {};
+          let starsSum = 0;
           repos.forEach(repo => {
+            if (repo.stargazers_count) {
+              starsSum += repo.stargazers_count;
+            }
             if (repo.language) {
               counts[repo.language] = (counts[repo.language] || 0) + 1;
             }
@@ -626,11 +595,9 @@ const VSCodeLayout = () => {
           const sorted = Object.entries(counts)
             .map(([lang, count]) => ({ lang, count }))
             .sort((a, b) => b.count - a.count);
-          const topLanguages = sorted.slice(0, 4);
           
-          setLanguagesList(topLanguages);
-          localStorage.setItem(CACHE_KEY_REPOS, JSON.stringify(topLanguages));
-          localStorage.setItem(CACHE_EXPIRY_KEY, (Date.now() + ONE_DAY).toString());
+          setTotalStars(starsSum);
+          setLanguagesList(sorted);
         }
       })
       .catch(err => console.error('GitHub repos fetch error:', err));
@@ -1108,21 +1075,21 @@ const VSCodeLayout = () => {
                   <div className="text-white/40 italic">"{githubData?.bio || 'Coding the future...'}"</div>
                 </div>
                 <div className="text-xs text-white/40 mt-2 flex flex-col gap-1">
-                  <div className="flex justify-between"><span>Public Repos:</span><span className="text-white">{githubData?.public_repos || 0}</span></div>
+                  <div className="flex justify-between"><span>Public Repos:</span><span className="text-white">{githubData ? githubData.public_repos : '...'}</span></div>
 
-                  <div className="flex justify-between"><span>Followers:</span><span className="text-white">{githubData?.followers || 0}</span></div>
-                  <div className="flex justify-between"><span>Following:</span><span className="text-white">{githubData?.following || 0}</span></div>
-                  <div className="flex justify-between border-t border-[#3c3c3c] pt-1 mt-1"><span>Total Stars:</span><span className="text-yellow-400">★ 128</span></div>
-                  <div className="flex justify-between"><span>Top Language:</span><span className="text-blue-400">JavaScript</span></div>
+                  <div className="flex justify-between"><span>Followers:</span><span className="text-white">{githubData ? githubData.followers : '...'}</span></div>
+                  <div className="flex justify-between"><span>Following:</span><span className="text-white">{githubData ? githubData.following : '...'}</span></div>
+                  <div className="flex justify-between border-t border-[#3c3c3c] pt-1 mt-1"><span>Total Stars:</span><span className="text-yellow-400">★ {totalStars}</span></div>
+                  <div className="flex justify-between"><span>Top Language:</span><span className="text-blue-400">{languagesList[0]?.lang || '...'}</span></div>
                   <div className="flex justify-between"><span>Contributions:</span><span className="text-green-400">1,234</span></div>
                 </div>
                 <div className="bg-[#3c3c3c] p-2 rounded mt-2">
-                  <div className="text-white/60 font-bold mb-2">Coding Activity (Languages)</div>
+                  <div className="text-white/60 font-bold mb-2">Coding Activity (Repos per Language)</div>
                   <div className="flex flex-col gap-1.5">
                     {languagesList.length > 0 ? (
-                      languagesList.map(({ lang, count }, idx) => {
+                      languagesList.map(({ lang, count }) => {
                         const total = languagesList.reduce((acc, curr) => acc + curr.count, 0);
-                        const percent = Math.round((count / total) * 100);
+                        const percent = Math.round((count / (total || 1)) * 100);
                         // Map languages to standard brand colors
                         const colors = {
                           JavaScript: '#f1e05a',
@@ -1135,19 +1102,17 @@ const VSCodeLayout = () => {
                           C: '#555555'
                         };
                         const barColor = colors[lang] || '#007acc';
-                        // Generate a plausible hours number for the visual aesthetic (e.g. 5h to 24h)
-                        const estHours = Math.max(3, Math.round((count / (total || 1)) * 36));
 
                         return (
                           <div key={lang} className="flex items-center gap-2">
                             <div className="w-16 text-right truncate text-white/80" title={lang}>{lang}</div>
                             <div className="flex-1 bg-[#252526] h-1.5 rounded-full overflow-hidden">
                               <div 
-                                className="h-full rounded-full" 
+                                className="h-full rounded-full transition-all duration-500" 
                                 style={{ width: `${percent}%`, backgroundColor: barColor }}
                               />
                             </div>
-                            <div className="w-8 text-right text-white/40">{estHours}h</div>
+                            <div className="w-10 text-right text-white/60 text-[10px]">{count} {count === 1 ? 'repo' : 'repos'}</div>
                           </div>
                         );
                       })
