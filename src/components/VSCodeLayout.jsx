@@ -27,6 +27,19 @@ const ResumeMd = () => (
     <h2 className="text-yellow-400 font-bold text-xl mt-6 border-b border-zinc-700 pb-2 mb-4">## Experience</h2>
     <div className="mb-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white font-bold gap-1">
+        <span>Software Developer Intern</span>
+        <span className="text-zinc-400 text-xs sm:text-sm">August 2026 – Jan 2027 (Expected completion)</span>
+      </div>
+      <div className="text-pink-400 italic text-sm">Trikara Technologies Pvt. Ltd.</div>
+      <ul className="list-disc ml-6 mt-2 text-zinc-300 text-sm space-y-1">
+        <li>Helping to build scalable web applications and backend systems.</li>
+        <li>Using advanced technologies like React, Next.js, Node.js, TypeScript, Git, and REST APIs.</li>
+        <li>Partnering with the development team to incorporate new functionality and fix problems.</li>
+        <li>Adhering to coding standards, testing, and code review process.</li>
+      </ul>
+    </div>
+    <div className="mb-6">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white font-bold gap-1">
         <span>Software Developer (Freelance)</span>
         <span className="text-zinc-400 text-xs sm:text-sm">2023 - Present</span>
       </div>
@@ -310,6 +323,17 @@ const ProjectsJson = () => (
 const ExperienceJs = () => (
   <div className="p-6 font-mono text-white/80">
     <div className="text-pink-400">export const <span className="text-blue-400">getExperience</span> = () =&gt; [</div>
+    <div className="ml-4 text-yellow-400">{`{`}</div>
+    <div className="ml-8 text-pink-400">period: <span className="text-amber-300">'August 2026 – Jan 2027 (Expected completion)'</span>,</div>
+    <div className="ml-8 text-pink-400">role: <span className="text-amber-300">'Software Developer Intern'</span>,</div>
+    <div className="ml-8 text-pink-400">company: <span className="text-amber-300">'Trikara Technologies Pvt. Ltd.'</span>,</div>
+    <div className="ml-8 text-pink-400">highlights: [</div>
+    <div className="ml-12 text-amber-300">'Helping to build scalable web applications and backend systems.',</div>
+    <div className="ml-12 text-amber-300">'Using advanced technologies like React, Next.js, Node.js, TypeScript, Git, and REST APIs.',</div>
+    <div className="ml-12 text-amber-300">'Partnering with the development team to incorporate new functionality and fix problems.',</div>
+    <div className="ml-12 text-amber-300">'Adhering to coding standards, testing, and code review process.'</div>
+    <div className="ml-8 text-pink-400">]</div>
+    <div className="ml-4 text-yellow-400">{`},`}</div>
     <div className="ml-4 text-yellow-400">{`{`}</div>
     <div className="ml-8 text-pink-400">period: <span className="text-amber-300">'2023 – Present'</span>,</div>
     <div className="ml-8 text-pink-400">role: <span className="text-amber-300">'Software Developer (Freelance)'</span>,</div>
@@ -674,7 +698,7 @@ const VSCodeLayout = () => {
       name: 'Experience.js',
       icon: <Briefcase size={14} className="text-yellow-400" />,
       component: <ExperienceJs />,
-      content: "Software Developer (Freelance), Self-Employed, 2023 - Present, React, Next.js, Go, WebRTC"
+      content: "Software Developer Intern, Trikara Technologies Pvt. Ltd., August 2026 – Jan 2027 (Expected completion), React, Next.js, Node.js, TypeScript, REST APIs"
     },
     {
       name: 'Education.json',
